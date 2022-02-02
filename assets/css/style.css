@@ -1,0 +1,17 @@
+.navbar .logo {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+
+.description {
+    margin-top: 40px;
+    text-align: center;
+    font-size: 26px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.instructions {
+    font-size: 15px;
+}
