@@ -13,5 +13,12 @@
 }
 
 .instructions {
+    text-align: center;
     font-size: 15px;
+}
+
+.home {
+    background: url(../images/movie-strip.png) no-repeat center;
+    background-size: contain, cover;
+    height: 100vh;
 }
