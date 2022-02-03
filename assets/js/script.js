@@ -20,20 +20,50 @@ var buttonEventHandler = function(event) {
     } else if (1950 <= input && input <= currentYear) {
         // call the next function
         document.querySelector("#warning-paragraph").textContent = "";
-        retrieveMovies(input);
+        // retrieveMovies(input);
     } else {
         // display text to tell user year is out of range for website use
         document.querySelector("#warning-paragraph").textContent = "Please enter a year between 1950 and " + currentYear;
+        return;
     }
+    // call function to add inputed year to the array
+    updateArray(input);
+
+    // clearing text box for user
+    textBox.value = "";
 };
 
 // function: input year output movies
 
 // function: input year output music
 
+// function: add input year to the array
+var updateArray = function(year) {
+    storedYear.push(year);
+    // need to display on page for user to see (possibly interact with)
+    saveContent();
+};
+
 // function: save local data (saving the year that was gathered from user input)
+var saveContent = function() {
+    localStorage.setItem("year", JSON.stringify(storedYear));
+};
 
 // function: persist local data (reload page each refresh to display the saved data on screen)
+var loadTasks = function() {
+    tasks = JSON.parse(localStorage.getItem("year"));
+    
+    // if nothing in storage, create new array
+    if (!year) {
+        year = [];
+    }
 
+    // loop through array
+    for (var i = 0; i < year.length; i++) {
+        // display on page
+    }
+};
 
 buttonClick.addEventListener("click", buttonEventHandler);
+
+loadTasks();
