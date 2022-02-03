@@ -1,5 +1,11 @@
+// array for local storage
+var storedYear = [];
+
+// creating variables to select elements on index.html
 var buttonClick = document.querySelector("#search-btn");
 var textBox = document.querySelector("#textarea");
+
+// variable for the current year for long term usability
 var currentYear = new Date().getFullYear();
 
 // function: gather user input from search button
@@ -14,7 +20,6 @@ var buttonEventHandler = function(event) {
     } else if (1950 <= input && input <= currentYear) {
         // call the next function
         document.querySelector("#warning-paragraph").textContent = "";
-        console.log("this is an available year");
         retrieveMovies(input);
     } else {
         // display text to tell user year is out of range for website use
