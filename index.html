@@ -4,13 +4,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" />
+    <!-- integrity="sha512-wnea99uKIC3TJF7v4eKk4Y+lMz2Mklv18+r4na2Gn1abDRPPOeef95xTzdwGD9e6zXJBteMIhZ1+68QC5byJZw==" crossorigin="anonymous" referrerpolicy="no-referrer" />" -->
     <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com"> 
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     <title>muvies</title>
 </head>
-<body>
+  <body>
     <section class="home">
         <nav class="navbar">
             <div class="width"> 
@@ -20,13 +22,107 @@
             </div>
         </nav>
 
-            <div class="description" id="glow">
-            Songs & Movies Throughout the Years!
-            <p class="instructions">Search whichever year you'd like and you'll recieve the top 5 songs and movies of that year.<p>
-            <input type="text">
-            <button>Search</button>
-            </div>
-        </section>
+        <div class="description">
+            <h1 id="glow">Songs & Movies Throughout the Years!</h1>
+              <p class="instructions" id="glow">Search whichever year you'd like and you'll recieve the top 5 songs and movies of that year.<p>
+                <input type="text" class="search-bar" >
+            <button class="searchBtn">Search</button>
+        </div>
+
+        
+        <!-- current year displayed -->
+        <!-- <h2 class="current-year" id="glow">2022</h2> -->
+        <h3 class="subtitle">Movies:</h3>
+        <hr />
+
+       <!-- top 5 movies 2022 -->
+        <div class="grid grid-cols-5 gap-1">
+          <!-- movie 1 -->
+          <div>
+            <p class="m-title" id="glow">1: Scream</p>
+            <img src="./assets/images/Scream2022.png" width="120px" height="150px">
+          </div>
+          <!-- movie 2 -->
+          <div>
+            <div class="col-span-1"></div>
+            <p class="m-title" id="glow">2: Water Gate Bridge</p>
+            <img src="./assets/images/watergate2022.png" width="130px" height="150px">
+          </div>
+          <!-- movie 3 -->
+          <div>
+            <p class="m-title" id="glow">3: The 355</p>
+            <img src="./assets/images/355.png" width="120px" height="150px">
+          </div>
+          <!-- movie 4 -->
+          <div>
+            <p class="m-title" id="glow">4: Redeeming Love</p>
+            <img src="./assets/images/redeeminglove.png" width="120px" height="150px">
+          </div>
+          <!-- movie 5 -->
+          <div>
+            <p class="m-title" id="glow">5: The Policeman's Lineage</p>
+            <img src="./assets/images/policemanslineage.png" width="120px" height="150px">
+          </div>
+        </div>
+
+        
+        <h3 class="subtitle">Songs:</h3>
+        <hr />
+
+        <!-- top 5 songs 2022 -->
+        <div class="grid grid-cols-5 gap-1">
+          <!-- song 1-->
+          <div>
+            <p class="m-title2" id="glow">1: Cold Heart</p>
+            <p class="artist" id="glow">PNAU Remix</p>
+            <img src="./assets/images/PNAU.png" width="120px" height="150px">
+          </div>
+          <!-- song 2 -->
+          <div>
+            <div class="col-span-1"></div>
+            <p class="m-title2" id="glow">2: Heat waves</p>
+            <p class="artist" id="glow">Glass Animals</p>
+            <img src="./assets/images/glassanimals.png" width="130px" height="150px">
+          </div>
+          <!-- song 3 -->
+          <div>
+            <p class="m-title2" id="glow">3: STAY</p>
+            <p class="artist" id="glow">The Kid LAROI</p>
+            <img src="./assets/images/laroi.png" width="120px" height="150px">
+          </div>
+          <!-- song 4 -->
+          <div>
+            <p class="m-title2" id="glow">4: Pushin P</p>
+            <p class="artist" id="glow">Gunna, Future, Young Thug</p>
+            <img src="./assets/images/pushinp.png" width="120px" height="150px">
+          </div>
+          <!-- song 5 -->
+          <div>
+            <p class="m-title2" id="glow">5: Shivers</p>
+            <p class="artist" id="glow">Ed Sheeran</p>
+            <img src="./assets/images/shivers.png" width="120px" height="150px">
+          </div>
+        
     
-</body>
+        </div>
+                
+             
+
+
+    </section>
+
+   
+    
+
+
+
+
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="assets/js/script.js"></script>
+
+  </body>
 </html>
