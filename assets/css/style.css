@@ -2,16 +2,27 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-}
+    padding: 20px 0px;
 
+}
 
 .description {
     margin-top: 40px;
     text-align: center;
     font-size: 26px;
     font-family: 'Poppins', sans-serif;
+    color: white;
+    font-weight: bolder;
 }
 
 .instructions {
+    text-align: center;
     font-size: 15px;
+    color: white;
+}
+
+.home {
+    background: url(../images/cinema-dark.png) no-repeat center;
+    background-size: cover;
+    height: 100vh;
 }
