@@ -10,6 +10,7 @@ var currentYear = new Date().getFullYear();
 
 // function: gather user input from search button
 var buttonEventHandler = function(event) {
+    event.preventDefault();
     var input = textBox.value;
 
     // check to ensure input is a year value
@@ -28,7 +29,8 @@ var buttonEventHandler = function(event) {
     }
     // call function to add inputed year to the array
     updateArray(input);
-
+    firstUserInput = 1;
+    
     // clearing text box for user
     textBox.value = "";
 };
@@ -38,8 +40,15 @@ var buttonEventHandler = function(event) {
 // function: input year output music
 
 // function: add input year to the array
+
+
 var updateArray = function(year) {
-    storedYear.push(year);
+    // var updatedStoredYear = [];
+    // if (!storedYear && updatedStoredYear) {
+        //     storedYear = updatedStoredYear;
+        // }
+        // updatedStoredYear = storedYear;
+        storedYear.push(year);
     // need to display on page for user to see (possibly interact with)
     saveContent();
 };
@@ -51,17 +60,11 @@ var saveContent = function() {
 
 // function: persist local data (reload page each refresh to display the saved data on screen)
 var loadTasks = function() {
-    tasks = JSON.parse(localStorage.getItem("year"));
-    
-    // if nothing in storage, create new array
-    if (!year) {
-        year = [];
+    var storedTasks = localStorage.getItem("year");
+    if (storedTasks) {
+        storedYear = JSON.parse(storedTasks);
     }
-
-    // loop through array
-    for (var i = 0; i < year.length; i++) {
-        // display on page
-    }
+    // updateArray();
 };
 
 buttonClick.addEventListener("click", buttonEventHandler);
