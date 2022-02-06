@@ -1,9 +1,12 @@
+* {
+   
+}
+
 .navbar .logo {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     padding: 20px 0px;
-
 }
 
 .description {
@@ -27,6 +30,13 @@
     color: black;
 }
 
+/* array of years ?????? */
+.year-array {
+    text-align: center;
+    color: white;
+    padding-top: 20px;
+}
+
 .searchBtn {
     font-size: 20px;
 }
@@ -45,43 +55,60 @@
     0 0 151px rgb(255, 0, 234);
 }
 
+/* background image */
 .home {
     background: url(../images/cinema-dark.png) no-repeat center;
     background-size: cover;
-    height: 100vh;
+    height: auto;
+
+
+    /* position: relative;
+    z-index: 0;
+    filter: blur(3px); */
+  /* -webkit-filter: blur(8px); */
 }
 
+/* thumbnail positions */
 .grid {
     color: white;
     margin-left: 20px;
     margin-top: 40px;
 }
 
+/* movie titles */
 .m-title {
     font-size: 20px;
     margin-bottom: 20px;
 }
-
+ 
+/* song titles */
 .m-title2 {
     font-size: 20px;
 }
 
+/* artist name */
 .artist {
     margin: 0 0 20px 20px;
     font-size: 15px;
 }
 
-.current-year {
+/* .current-year {
     color: white;
     margin: 30px 0 0 20px;
     font-size: 30px;
     font-weight: bold;
-}
+} */
 
+/* movie/song subtitle */
 .subtitle {
     color: white;
     font-size: 25px;
     margin: 50px 0 0 20px;
     font-weight: bold;
+}
+
+.footer {
+    text-align: center;
+    color: white;
 }
 
