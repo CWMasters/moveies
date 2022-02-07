@@ -43,11 +43,6 @@ var buttonEventHandler = function(event) {
 
 
 var updateArray = function(year) {
-    // var updatedStoredYear = [];
-    // if (!storedYear && updatedStoredYear) {
-        //     storedYear = updatedStoredYear;
-        // }
-        // updatedStoredYear = storedYear;
         storedYear.push(year);
     // need to display on page for user to see (possibly interact with)
     saveContent();
