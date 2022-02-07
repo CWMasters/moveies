@@ -36,6 +36,15 @@ var buttonEventHandler = function(event) {
 };
 
 // function: input year output movies
+var requestOptions = {
+    method: 'GET',
+    redirect: 'follow'
+  };
+   
+  fetch('https://imdb-api.com/en/API/MostPopularMovies/k_qe9kt9tg', requestOptions)
+    .then(response => response.text())
+    .then(result => console.log(result))
+    .catch(error => console.log('error', error));
 
 // function: input year output music
 
