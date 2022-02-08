@@ -3,7 +3,7 @@ var storedYear = [];
 
 // creating variables to select elements on index.html
 var buttonClick = document.querySelector("#search-btn");
-var textBox = document.querySelector("#textarea");
+var textBox = document.querySelector(".textarea");
 
 // variable for the current year for long term usability
 var currentYear = new Date().getFullYear();
@@ -29,30 +29,54 @@ var buttonEventHandler = function(event) {
     }
     // call function to add inputed year to the array
     updateArray(input);
-    firstUserInput = 1;
+
+    // call function to fetch the api
+    fetchApi(input);
     
     // clearing text box for user
     textBox.value = "";
 };
 
+
 // function: input year output movies
-var requestOptions = {
-    method: 'GET',
-    redirect: 'follow'
-  };
-   
-  fetch('https://imdb-api.com/en/API/MostPopularMovies/k_qe9kt9tg', requestOptions)
-    .then(response => response.text())
-    .then(result => console.log(result))
-    .catch(error => console.log('error', error));
+var fetchApi = function(year) {
+    var requestOptions = {
+        method: 'GET',
+        redirect: 'follow'
+      };
+    var movieApi = 'https://imdb-api.com/API/AdvancedSearch/k_qe9kt9tg?title_type=feature,tv_movie&release_date=2022-01-01,&countries=us&sort=moviemeter,desc';
+    fetch(movieApi, requestOptions).then(function(response) {
+        if (response.ok) {
+            response.json().then(function(data){
+                displayData(data, year);
+                console.log(data);
+                for (var i = 0; i < 5; i++) {
+                    // collect title to display
+                    
+                    // collect image to display
+
+                }
+            });
+        } else {
+            // switch from alert to display on page
+            alert("Error: Year unable to be searched");
+        }
+    })
+    .catch(function(error) {
+        alert("Unable to connect to IMDb");
+    });
+}
+
+// function to display data
+var displayData = function(data, year) {
+    console.log("function called");
+}
 
 // function: input year output music
 
 // function: add input year to the array
-
-
 var updateArray = function(year) {
-        storedYear.push(year);
+    storedYear.push(year);
     // need to display on page for user to see (possibly interact with)
     saveContent();
 };
@@ -74,12 +98,3 @@ var loadTasks = function() {
 buttonClick.addEventListener("click", buttonEventHandler);
 
 loadTasks();
-
-
-
-
-
-
-
-
-// IMDB API KEY = k_nxso5xxe
