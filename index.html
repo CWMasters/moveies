@@ -26,18 +26,23 @@
         <div class="description">
             <h1 id="glow">Songs & Movies Throughout the Years!</h1>
               <p class="instructions" id="glow">Search whichever year you'd like and you'll recieve the top 5 songs and movies of that year.<p>
-                <input type="text" class="search-bar" >
-            <button class="searchBtn">Search</button>
+                <input type="text" class="textarea">
+              </br>
+            <button class="btn" id="search-btn">Search</button>
         </div>
 
         <!-- stored date array ????????-->
-        <div class="year-array">
-            <p>2010 2011 2012 2013 2014 2015</p>
+        <div class="year-array" id="quick-links">
+            <p>Search History:</p>
+            <button>2010</button> <!-- placeholders -->
+            <button>2011</button>
+            <button>2012</button>
+            <button>2013</button>
+            <button>2014</button>
         </div>
 
-        
         <!-- current year displayed -->
-        <!-- <h2 class="current-year" id="glow">2022</h2> -->
+        <h2 class="year-header" id="glow">2022</h2>
         <!-- subtitle -->
         <h3 class="subtitle">Movies:</h3>
         <!-- break line -->
@@ -49,7 +54,7 @@
           <div class="movie-1 w-48">
             <p class="m-title" id="glow">1: Scream</p>
           </br>
-            <img src="./assets/images/Scream2022.png" width="150px">
+            <img src="./assets/images/Scream2022.png" width="160px">
           </div>
           <!-- movie 2 -->
           <div class="movie-2 w-48">
@@ -60,21 +65,21 @@
           </div>
           <!-- movie 3 -->
           <div class="movie-3 w-48">
-            <p class="m-title" id="glow">3: The 355</p>
+            <p class="m-title" id="glow">3: Jackass Forever</p>
           </br>
-            <img src="./assets/images/355.png" width="160px">
+            <img src="./assets/images/jackass.png" width="160px">
           </div>
           <!-- movie 4 -->
           <div class="movie-4 w-48">
-            <p class="m-title" id="glow">4: Redeeming Love</p>
+            <p class="m-title" id="glow">4: The 355</p>
           </br>
-            <img src="./assets/images/redeeminglove.png" width="160px">
+            <img src="./assets/images/355.png" width="160px">
           </div>
           <!-- movie 5 -->
           <div class="movie-5 w-48">
-            <p class="m-title" id="glow">5: The Policeman's Lineage</p>
+            <p class="m-title" id="glow">5: Moonfall</p>
           </br>
-            <img src="./assets/images/policemanslineage.png" width="160px">
+            <img src="./assets/images/moonfall.png" width="160px">
           </div>
         </div>
 
@@ -84,7 +89,7 @@
         <hr />
 
         <!-- top 5 songs 2022 -->
-        <div class="grid grid-cols-5 sm:grid-cols-3 lg:grid-cols-5 xl:grid-cols-5 gap-5 pb-20">
+        <div class="grid grid-cols-5 sm:grid-cols-3 lg:grid-cols-5 xl:grid-cols-5 gap-5 ml-10 pb-20">
           <!-- song 1-->
           <div class="song-1">
             <p class="m-title2" id="glow">1: Cold Heart</p>

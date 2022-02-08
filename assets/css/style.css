@@ -1,4 +1,5 @@
 * {
+    
    
 }
 
@@ -24,7 +25,7 @@
     color: white;
 }
 
-.search-bar {
+.textarea {
     margin-top: 20px;
     font-size: 20px;
     color: black;
@@ -35,9 +36,17 @@
     text-align: center;
     color: white;
     padding-top: 20px;
+    font-size: 22px;
+    font-weight: bold;
 }
+    
+/* .year-array :hover {
+    opacity: 0.5;
+    font-size: 28px;
+    color: rgb(0, 247, 193);
+} */
 
-.searchBtn {
+.btn {
     font-size: 20px;
 }
 
@@ -61,11 +70,11 @@
     background-size: cover;
     height: auto;
 
-
-    /* position: relative;
-    z-index: 0;
-    filter: blur(3px); */
-  /* -webkit-filter: blur(8px); */
+   
+    /* position: absolute;
+    z-index: 2;
+    filter: blur(3px);
+  -webkit-filter: blur(8px); */
 }
 
 /* thumbnail positions */
@@ -92,12 +101,12 @@
     font-size: 15px;
 }
 
-/* .current-year {
+.year-header {
     color: white;
     margin: 30px 0 0 20px;
     font-size: 30px;
     font-weight: bold;
-} */
+}
 
 /* movie/song subtitle */
 .subtitle {
@@ -111,4 +120,6 @@
     text-align: center;
     color: white;
 }
+
+
 
