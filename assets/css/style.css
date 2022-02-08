@@ -1,15 +1,19 @@
+* {
+    
+   
+}
+
 .navbar .logo {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     padding: 20px 0px;
-
 }
 
 .description {
     margin-top: 40px;
     text-align: center;
-    font-size: 26px;
+    font-size: 30px;
     font-family: 'Poppins', sans-serif;
     color: white;
     font-weight: bolder;
@@ -21,8 +25,101 @@
     color: white;
 }
 
+.textarea {
+    margin-top: 20px;
+    font-size: 20px;
+    color: black;
+}
+
+/* array of years ?????? */
+.year-array {
+    text-align: center;
+    color: white;
+    padding-top: 20px;
+    font-size: 22px;
+    font-weight: bold;
+}
+    
+/* .year-array :hover {
+    opacity: 0.5;
+    font-size: 28px;
+    color: rgb(0, 247, 193);
+} */
+
+.btn {
+    font-size: 20px;
+}
+
+/* Glow to text effect */
+#glow {
+    color: #fff;
+  text-shadow:
+    0 0 7px #fff,
+    0 0 10px #fff,
+    0 0 21px #fff,
+    0 0 42px rgb(255, 0, 234),
+    0 0 82px rgb(255, 0, 234),
+    0 0 92px rgb(255, 0, 234),
+    0 0 102px rgb(255, 0, 234),
+    0 0 151px rgb(255, 0, 234);
+}
+
+/* background image */
 .home {
     background: url(../images/cinema-dark.png) no-repeat center;
     background-size: cover;
-    height: 100vh;
+    height: auto;
+
+   
+    /* position: absolute;
+    z-index: 2;
+    filter: blur(3px);
+  -webkit-filter: blur(8px); */
 }
+
+/* thumbnail positions */
+.grid {
+    color: white;
+    margin-left: 20px;
+    margin-top: 40px;
+}
+
+/* movie titles */
+.m-title {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+ 
+/* song titles */
+.m-title2 {
+    font-size: 20px;
+}
+
+/* artist name */
+.artist {
+    margin: 0 0 20px 20px;
+    font-size: 15px;
+}
+
+.year-header {
+    color: white;
+    margin: 30px 0 0 20px;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+/* movie/song subtitle */
+.subtitle {
+    color: white;
+    font-size: 25px;
+    margin: 50px 0 0 20px;
+    font-weight: bold;
+}
+
+.footer {
+    text-align: center;
+    color: white;
+}
+
+
+
