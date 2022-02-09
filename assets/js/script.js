@@ -79,6 +79,10 @@ var fetchApi = function(year) {
 var displayData = function(data, year) {
     // updates year displayed to be user input year
     document.querySelector(".year-header").textContent = year;
+    // display movie images and titles on page
+    for (var i = 0; i < data.length; i++) {
+        
+    }
     console.log("function called");
 }
 
