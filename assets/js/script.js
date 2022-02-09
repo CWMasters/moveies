@@ -95,9 +95,9 @@ var displayData = function(arrayOfTitles, arrayOfImages, year) {
             generalDiv.firstElementChild.textContent = k + ": " + arrayOfTitles[i];
             console.log(generalDiv.firstElementChild);
             // changing the image
-            console.log(arrayOfImages[i]);
-            generalDiv.lastElementChild.setAttribute("src", arrayOfImages[i]);
-            console.log(generalDiv.lastElementChild);
+            // console.log(arrayOfImages[i]);
+            // generalDiv.lastElementChild.setAttribute("src", arrayOfImages[i]);
+            // console.log(generalDiv.lastElementChild);
     }
 }
 
