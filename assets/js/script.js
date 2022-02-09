@@ -1,6 +1,9 @@
 // array for local storage
 var storedYear = [];
 
+//console.log(document.querySelector(".movie-2").getElementsByClassName(".m-title"));
+
+
 // creating variables to select elements on index.html
 var buttonClick = document.querySelector("#search-btn");
 var textBox = document.querySelector(".textarea");
@@ -41,7 +44,8 @@ var buttonEventHandler = function(event) {
 
 // function: input year output movies
 var fetchApi = function(year) {
-    var dataForYear = [];
+    var titleArray = [];
+    var imageArray = [];
     var requestOptions = {
         method: 'GET',
         redirect: 'follow'
@@ -50,18 +54,15 @@ var fetchApi = function(year) {
     fetch(movieApi, requestOptions).then(function(response) {
         if (response.ok) {
             response.json().then(function(data){
-                console.log(data);
+                // console.log(data);
                 for (var i = 0; i < 5; i++) {
                     // collect title to display
                     var dataTitle = data.results[i].title
-                    console.log(dataTitle);
                     // collect image to display
                     var dataImage = data.results[i].image;
-                    console.log(dataImage);
                     // add to object and place object in array
-                    var dataObj = {title:dataTitle, image:dataImage};
-                    dataForYear.push(dataObj);
-                    console.log(dataForYear);
+                    titleArray.push(dataTitle);
+                    imageArray.push(dataImage);
                 }
             });
         } else {
@@ -72,18 +73,32 @@ var fetchApi = function(year) {
     .catch(function(error) {
         alert("Unable to connect to IMDb");
     });
-    displayData(dataForYear, year);
+    console.log(titleArray);
+    console.log(imageArray);
+    displayData(titleArray, imageArray, year);
 }
 
 // function to display movie data
-var displayData = function(data, year) {
+var displayData = function(arrayOfTitles, arrayOfImages, year) {
+
     // updates year displayed to be user input year
     document.querySelector(".year-header").textContent = year;
+
+    console.log(arrayOfTitles);
+    console.log(arrayOfImages);
     // display movie images and titles on page
-    for (var i = 0; i < data.length; i++) {
-        
+    for (var i = 0; i<arrayOfImages.length; i++) {
+        var k = i+1;
+            var generalDiv = document.querySelector(".movie-"+k);
+            // changing the title
+            console.log(arrayOfTitles[i]);
+            generalDiv.firstElementChild.textContent = k + ": " + arrayOfTitles[i];
+            console.log(generalDiv.firstElementChild);
+            // changing the image
+            console.log(arrayOfImages[i]);
+            generalDiv.lastElementChild.setAttribute("src", arrayOfImages[i]);
+            console.log(generalDiv.lastElementChild);
     }
-    console.log("function called");
 }
 
 // function: input year output music
