@@ -14,10 +14,10 @@
 <body>
 
     <!-- background image -->
-    <!-- <div class="background-image blur-sm">
+    <div class="background-image blur-sm">
       <img src="./assets/images/cinema-dark.png">
-    </div> -->
-<div class="home">
+    </div>
+<!-- <div class="home"> -->
     
     
     <section>
@@ -30,8 +30,8 @@
         </nav>
     
         <div class="description">
-            <h1 id="glow">Songs & Movies Throughout the Years!</h1>
-              <p class="instructions" id="glow">Search whichever year you'd like and you'll recieve the top 5 songs and movies of that year.<p>
+            <h1 id="glow">Movies Throughout the Years, with an acitvity while you watch!</h1>
+              <p class="instructions" id="glow">Search whichever year you'd like and you'll recieve the top 5 movies of that year.<p>
                 <input type="text" class="textarea">
               </br>
             <button class="btn" id="search-btn">Search</button>
@@ -52,7 +52,7 @@
     </section> 
 
 
-
+      <main>
         <!-- current year displayed -->
         <h2 class="year-header flex" id="glow">2022</h2>
         <!-- subtitle -->
@@ -61,7 +61,7 @@
         <hr />
 
        <!-- top 5 movies 2022 -->
-        <div class="flex grid grid-cols-5 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-5 xl:grid-cols-5 gap-5 ml-10">
+        <div class="movie-container flex grid grid-cols-5 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-5 xl:grid-cols-5 gap-5 ml-10">
           <!-- movie 1 -->
           <div class="movie-1">
             <p class="m-title" id="glow">1: Scream</p>
@@ -90,7 +90,7 @@
           </br>
             <img src="./assets/images/355.png" alt="The 355 Movie Poster" width="160px">
           </div>
-          
+
           <!-- movie 5 -->
           <div class="movie-5">
             <p class="m-title" id="glow">5: Moonfall</p>
@@ -98,50 +98,25 @@
             <img src="./assets/images/moonfall.png" alt="Moonfall Movie Poster" width="160px">
           </div>
         </div>
+      </main>
         
 
-        <!-- subtitle -->
-        <h3 class="subtitle">Activity while you watch:</h3>
-        <!-- break line -->
-        <hr />
+        <!-- activity -->
+        <div>
+            <h3 class="subtitle1">A fun activity while you watch?</h3>
+            <hr />
+        </div>
 
-        <!-- top 5 songs 2022 -->
-        <!-- <div class="grid grid-cols-5 sm:grid-cols-3 lg:grid-cols-5 xl:grid-cols-5 gap-5 ml-10 pb-20"> -->
-          <!-- song 1-->
-          <!-- <div class="song-1">
-            <p class="m-title2" id="glow">1: Cold Heart</p>
-            <p class="artist" id="glow">PNAU Remix</p>
-            <img src="./assets/images/PNAU.png" alt="Cold Heart Song Cover" width="120px" height="150px">
-          </div> -->
-          <!-- song 2 -->
-          <!-- <div class="song-2">
-            <div class="col-span-1"></div>
-            <p class="m-title2" id="glow">2: Heat waves</p>
-            <p class="artist" id="glow">Glass Animals</p>
-            <img src="./assets/images/glassanimals.png" alt="Heat Waves Song Cover" width="130px" height="150px">
-          </div> -->
-          <!-- song 3 -->
-          <!-- <div class="song-3">
-            <p class="m-title2" id="glow">3: STAY</p>
-            <p class="artist" id="glow">The Kid LAROI</p>
-            <img src="./assets/images/laroi.png" alt="STAY Song Cover" width="120px" height="150px">
-          </div> -->
-          <!-- song 4 -->
-          <!-- <div class="song-4">
-            <p class="m-title2" id="glow">4: Pushin P</p>
-            <p class="artist" id="glow">Gunna, Future, Young Thug</p>
-            <img src="./assets/images/pushinp.png" alt="Pushin P Song Cover" width="120px" height="150px">
-          </div> -->
-          <!-- song 5 -->
-          <!-- <div class="song-5">
-            <p class="m-title2" id="glow">5: Shivers</p>
-            <p class="artist" id="glow">Ed Sheeran</p>
-            <img src="./assets/images/shivers.png" alt="Shivers Song Cover" width="120px" height="150px">
-          </div>
-        </div> -->
+        <div id="bored-data">
+            <button class="act-btn" id="next-activity"></button>
+            <p id="activity-type"></p>
+            <p id="random-activity"></p>
+            <p id="participants"></p>
+            <p id="participants"></p>
+            <p id="price"></p>
+        </div>
 
-
-
+        
         <footer class="footer pb-10">
             <hr /> </br>
             <h4>
@@ -149,9 +124,8 @@
             </h4>
         </footer>
     
-   
 
-    </div>
+    <!-- </div> -->
     
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>

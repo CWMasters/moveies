@@ -3,10 +3,11 @@ var storedYear = [];
 
 // creating variables to select elements on index.html
 var buttonClick = document.querySelector("#search-btn");
-var textBox = document.querySelector("#textarea");
+var textBox = document.querySelector(".textarea");
 
 // variable for the current year for long term usability
 var currentYear = new Date().getFullYear();
+
 
 // function: gather user input from search button
 var buttonEventHandler = function(event) {
@@ -29,30 +30,67 @@ var buttonEventHandler = function(event) {
     }
     // call function to add inputed year to the array
     updateArray(input);
-    firstUserInput = 1;
+
+    // call function to fetch the api
+    fetchApi(input);
     
     // clearing text box for user
     textBox.value = "";
 };
 
+
 // function: input year output movies
-var requestOptions = {
-    method: 'GET',
-    redirect: 'follow'
-  };
-   
-  fetch('https://imdb-api.com/en/API/MostPopularMovies/k_qe9kt9tg', requestOptions)
-    .then(response => response.text())
-    .then(result => console.log(result))
-    .catch(error => console.log('error', error));
+var fetchApi = function(year) {
+    var dataForYear = [];
+    var requestOptions = {
+        method: 'GET',
+        redirect: 'follow'
+      };
+    var movieApi = 'https://imdb-api.com/API/AdvancedSearch/k_nxso5xxe?title_type=feature,tv_movie&release_date=' + year + '-01-01,&countries=us&sort=moviemeter,desc';
+    fetch(movieApi, requestOptions).then(function(response) {
+        if (response.ok) {
+            response.json().then(function(data){
+                console.log(data);
+                for (var i = 0; i < 5; i++) {
+                    // collect title to display
+                    var dataTitle = data.results[i].title
+                    console.log(dataTitle);
+                    // collect image to display
+                    var dataImage = data.results[i].image;
+                    console.log(dataImage);
+                    // add to object and place object in array
+                    var dataObj = {title:dataTitle, image:dataImage};
+                    dataForYear.push(dataObj);
+                    console.log(dataForYear);
+                }
+            });
+        } else {
+            // switch from alert to display on page
+            alert("Error: Year unable to be searched");
+        }
+    })
+    .catch(function(error) {
+        alert("Unable to connect to IMDb");
+    });
+    displayData(dataForYear, year);
+}
+
+// function to display movie data
+var displayData = function(data, year) {
+    // updates year displayed to be user input year
+    document.querySelector(".year-header").textContent = year;
+    // display movie images and titles on page
+    for (var i = 0; i < data.length; i++) {
+        
+    }
+    console.log("function called");
+}
 
 // function: input year output music
 
 // function: add input year to the array
-
-
 var updateArray = function(year) {
-        storedYear.push(year);
+    storedYear.push(year);
     // need to display on page for user to see (possibly interact with)
     saveContent();
 };
@@ -71,10 +109,26 @@ var loadTasks = function() {
     // updateArray();
 };
 
+// activity api implementation
+var boredApiUrl = 'https://www.boredapi.com/api/activity'
+var boredBtn = document.querySelector("#next-activity")
+
+fetch(boredApiUrl)
+.then(response => response.json())
+.then(data => {
+  console.log(data)
+  document.getElementById("activity-type").innerHTML = "Type: " + data.type;
+  document.getElementById("random-activity").innerHTML = "Activity: " + data.activity;
+  document.getElementById("participants").innerHTML = "Participants: " + data.participants;
+  document.getElementById("price").innerHTML = "Price: " + "$" + data.price;
+});
+
 buttonClick.addEventListener("click", buttonEventHandler);
 
 loadTasks();
 
+// Kiri's key: k_qe9kt9tg
+// Chris's key: k_nxso5xxe
 
 
 
@@ -82,4 +136,4 @@ loadTasks();
 
 
 
-// IMDB API KEY = k_nxso5xxe
+
