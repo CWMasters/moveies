@@ -64,6 +64,19 @@ var loadTasks = function() {
     }
 };
 
+var boredApiUrl = 'https://www.boredapi.com/api/activity'
+var boredBtn = document.querySelector("#next-activity")
+
+fetch(boredApiUrl)
+.then(response => response.json())
+.then(data => {
+  console.log(data)
+  document.getElementById("activity-type").innerHTML = "Type: " + data.type;
+  document.getElementById("random-activity").innerHTML = "Activity: " + data.activity;
+  document.getElementById("participants").innerHTML = "Participants: " + data.participants;
+  document.getElementById("price").innerHTML = "Price: " + "$" + data.price;
+});
+
 buttonClick.addEventListener("click", buttonEventHandler);
 
 loadTasks();
