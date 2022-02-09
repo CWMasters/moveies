@@ -1,9 +1,9 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- integrity="sha512-wnea99uKIC3TJF7v4eKk4Y+lMz2Mklv18+r4na2Gn1abDRPPOeef95xTzdwGD9e6zXJBteMIhZ1+68QC5byJZw==" crossorigin="anonymous" referrerpolicy="no-referrer" />" -->
     <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com"> 
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
@@ -16,25 +16,106 @@
         <nav class="navbar">
             <div class="width"> 
                 <div class="logo">
-                    <img src="./assets/images/movie-logo-white.png" alt="muvies logo" width="180px" height="40px">
+                    <img src="./assets/images/movie-logo-white.png" alt="muvies logo">
                 </div>
             </div>
         </nav>
 
-            <div class="description">
-            Songs & Movies Throughout the Years!
-            <p class="instructions">Search whichever year you'd like and you'll recieve the top 5 songs and movies of that year.<p>
-                <p class="warning-text" id="warning-paragraph"></p>
-            <input type="text" id="textarea">
-            <button class = "btn" id="search-btn">Search</button>
-        </section>
-    </header>
-
-    <section class="container">
-        <div>
-            <p></p>
+        <div class="description">
+            <h1 id="glow">Songs & Movies Throughout the Years!</h1>
+              <p class="instructions" id="glow">Search whichever year you'd like and you'll recieve the top 5 songs and movies of that year.<p>
+                  <div class="">
+                      <input type="text" class="search-bar"></input>
+                    </div>
+                    <button class="searchBtn">Search</button>
         </div>
+
+        <!-- stored date array ????????-->
+        <div class="year-array">
+            <p>2010 2011 2012 2013 2014 2015</p>
+        </div>
+
+        
+        <!-- current year displayed -->
+        <!-- <h2 class="current-year" id="glow">2022</h2> -->
+        <!-- subtitle -->
+        <h3 class="subtitle">Movies:</h3>
+
+        <!-- break line -->
+       
+
+       <!-- top 5 movies 2022 -->
+        <div class="grid grid-cols-5 sm:grid-cols-3 lg:grid-cols-5 xl:grid-cols-5 gap-5 ml-10">
+          <!-- movie 1 -->
+          <div class="movie-1 w-48">
+            <p class="m-title" id="glow">1: Scream</p>
+          </br>
+            <!-- <img src="./assets/images/Scream2022.png" width="150px"> -->
+          </div>
+          <!-- movie 2 -->
+          <div class="movie-2 w-48">
+            <div class="col-span-1"></div>
+            <p class="m-title" id="glow">2: Water Gate Bridge</p>
+          </br>
+            <!-- <img src="./assets/images/watergate2022.png" width="160px"> -->
+          </div>
+          <!-- movie 3 -->
+          <div class="movie-3 w-48">
+            <p class="m-title" id="glow">3: The 355</p>
+          </br>
+            <!-- <img src="./assets/images/355.png" width="160px"> -->
+          </div>
+          <!-- movie 4 -->
+          <div class="movie-4 w-48">
+            <p class="m-title" id="glow">4: Redeeming Love</p>
+          </br>
+            <!-- <img src="./assets/images/redeeminglove.png" width="160px"> -->
+          </div>
+          <!-- movie 5 -->
+          <div class="movie-5 w-48">
+            <p class="m-title" id="glow">5: The Policeman's Lineage</p>
+          </br>
+            <!-- <img src="./assets/images/policemanslineage.png" width="160px"> -->
+          </div>
+        </div>
+
+        <!-- subtitle -->
+        <div class="subtitle">
+        <h3 class="bored-title">Suggested Activity to do While Watching the Movie:</h3>
+      </div>
+        <div id="bored-data">
+          <button id="next-activity"></button>
+          <p id="activity-type"></p>
+          <p id="random-activity"></p>
+          <p id="participants"></p>
+          <p id="participants"></p>
+          <p id="price"></p>
+        </div>
+        
+
+
+
+
+        <footer class="footer pb-10">
+            <h4>
+                &copy; 2022 KBCC, Inc
+            </h4>
+        </footer>
+    
     </section>
-    <script src="./assets/js/script.js"></script>
-</body>
+    
+    
+    
+    
+   
+
+
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="assets/js/script.js"></script>
+
+  </body>
 </html>
