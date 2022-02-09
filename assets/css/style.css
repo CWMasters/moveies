@@ -1,6 +1,6 @@
 * {
-    
-   
+    z-index: 2;
+    position: relative;
 }
 
 .navbar .logo {
@@ -31,21 +31,35 @@
     color: black;
 }
 
-/* array of years ?????? */
+/* Year array displayed start */
 .year-array {
     text-align: center;
     color: white;
     padding-top: 20px;
-    font-size: 22px;
+    font-size: 20px;
+}
+
+.stored-year {
+    font-size: 25px;
     font-weight: bold;
 }
-    
-/* .year-array :hover {
-    opacity: 0.5;
-    font-size: 28px;
-    color: rgb(0, 247, 193);
-} */
 
+.stored-year :hover {
+    font-weight: bold;
+    color: #fff;
+    text-shadow:
+    0 0 7px #fff,
+    0 0 10px #fff,
+    0 0 21px #fff,
+    0 0 42px rgb(255, 0, 234),
+    0 0 82px rgb(255, 0, 234),
+    0 0 92px rgb(255, 0, 234),
+    0 0 102px rgb(255, 0, 234),
+    0 0 151px rgb(255, 0, 234);
+}
+/* Year array displayed end */
+
+/* Search button */
 .btn {
     font-size: 20px;
 }
@@ -65,17 +79,29 @@
 }
 
 /* background image */
-.home {
+/* .background-image { 
+    background: url(../images/cinema-dark.png) no-repeat center; 
+    background-size: cover; 
+    height: auto; 
+    position: absolute;
+    z-index: 1;
+}  */
+
+/* background image */
+.home{
     background: url(../images/cinema-dark.png) no-repeat center;
     background-size: cover;
     height: auto;
-
-   
-    /* position: absolute;
-    z-index: 2;
+    
+    /* backdrop-filter: blur(3px); */
+    
+    /* z-index: 3;
     filter: blur(3px);
   -webkit-filter: blur(8px); */
+
 }
+
+
 
 /* thumbnail positions */
 .grid {
@@ -91,16 +117,17 @@
 }
  
 /* song titles */
-.m-title2 {
+/* .m-title2 {
     font-size: 20px;
-}
+} */
 
 /* artist name */
-.artist {
+/* .artist {
     margin: 0 0 20px 20px;
     font-size: 15px;
-}
+} */
 
+/* Chosen year header */
 .year-header {
     color: white;
     margin: 30px 0 0 20px;
@@ -119,7 +146,12 @@
 .footer {
     text-align: center;
     color: white;
+    padding-top: 50px;
 }
 
 
-
+/* @media screen and (max-width: 575px) {
+   .year-header {
+       font-size: 20px;
+   }
+} */
