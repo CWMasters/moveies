@@ -8,6 +8,7 @@ var textBox = document.querySelector(".textarea");
 // variable for the current year for long term usability
 var currentYear = new Date().getFullYear();
 
+
 // function: gather user input from search button
 var buttonEventHandler = function(event) {
     event.preventDefault();
@@ -40,21 +41,27 @@ var buttonEventHandler = function(event) {
 
 // function: input year output movies
 var fetchApi = function(year) {
+    var dataForYear = [];
     var requestOptions = {
         method: 'GET',
         redirect: 'follow'
       };
-    var movieApi = 'https://imdb-api.com/API/AdvancedSearch/k_qe9kt9tg?title_type=feature,tv_movie&release_date=2022-01-01,&countries=us&sort=moviemeter,desc';
+    var movieApi = 'https://imdb-api.com/API/AdvancedSearch/k_nxso5xxe?title_type=feature,tv_movie&release_date=' + year + '-01-01,&countries=us&sort=moviemeter,desc';
     fetch(movieApi, requestOptions).then(function(response) {
         if (response.ok) {
             response.json().then(function(data){
-                displayData(data, year);
                 console.log(data);
                 for (var i = 0; i < 5; i++) {
                     // collect title to display
-                    
+                    var dataTitle = data.results[i].title
+                    console.log(dataTitle);
                     // collect image to display
-
+                    var dataImage = data.results[i].image;
+                    console.log(dataImage);
+                    // add to object and place object in array
+                    var dataObj = {title:dataTitle, image:dataImage};
+                    dataForYear.push(dataObj);
+                    console.log(dataForYear);
                 }
             });
         } else {
@@ -65,10 +72,13 @@ var fetchApi = function(year) {
     .catch(function(error) {
         alert("Unable to connect to IMDb");
     });
+    displayData(dataForYear, year);
 }
 
-// function to display data
+// function to display movie data
 var displayData = function(data, year) {
+    // updates year displayed to be user input year
+    document.querySelector(".year-header").textContent = year;
     console.log("function called");
 }
 
@@ -98,3 +108,6 @@ var loadTasks = function() {
 buttonClick.addEventListener("click", buttonEventHandler);
 
 loadTasks();
+
+// Kiri's key: k_qe9kt9tg
+// Chris's key: k_nxso5xxe
