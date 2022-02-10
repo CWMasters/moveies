@@ -103,7 +103,7 @@ var getActivity = function() {
       currentActivityContainer.appendChild(activityParticipants);
 
     var activityPrice = document.createElement("p");
-      activityPrice.textContent = "Price: " + data.price
+      activityPrice.textContent = "Price: " + "$ " + data.price
       activityPrice.classList = "text-capitalize";
       currentActivityContainer.appendChild(activityPrice);
   });
