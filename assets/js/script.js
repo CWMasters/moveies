@@ -85,6 +85,8 @@ var getActivity = function() {
   .then(data => {
     console.log(data)
     
+    currentActivityContainer.textContent = "";
+    
     var activityType = document.createElement("p");
       activityType.textContent = "Type: " + data.type
       activityType.classList = "text-capitalize";
@@ -108,7 +110,7 @@ var getActivity = function() {
 } 
 
 boredBtn.addEventListener("click", getActivity)
-buttonClick.addEventListener("click", buttonEventHandler);
+// buttonClick.addEventListener("click", buttonEventHandler);
 
 loadTasks();
 
