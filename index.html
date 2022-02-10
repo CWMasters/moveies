@@ -1,9 +1,9 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- integrity="sha512-wnea99uKIC3TJF7v4eKk4Y+lMz2Mklv18+r4na2Gn1abDRPPOeef95xTzdwGD9e6zXJBteMIhZ1+68QC5byJZw==" crossorigin="anonymous" referrerpolicy="no-referrer" />" -->
     <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com"> 
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
@@ -12,100 +12,108 @@
     <title>muvies</title>
 </head>
 <body>
-    <section class="home">
+
+    <!-- background image -->
+    <div class="background-image blur-sm">
+      <img src="./assets/images/cinema-dark.png">
+    </div>
+<!-- <div class="home"> -->
+    
+    
+    <section>
         <nav class="navbar">
             <div class="width"> 
                 <div class="logo">
-                    <img src="./assets/images/movie-logo-white.png" alt="muvies logo">
+                    <img src="./assets/images/movie-logo-white.png" alt="muvies logo" width="180px" height="40px">
                 </div>
             </div>
         </nav>
-
+    
         <div class="description">
-            <h1 id="glow">Songs & Movies Throughout the Years!</h1>
-              <p class="instructions" id="glow">Search whichever year you'd like and you'll recieve the top 5 songs and movies of that year.<p>
-                  <div class="">
-                      <input type="text" class="search-bar"></input>
-                    </div>
-                    <button class="searchBtn">Search</button>
+            <h1 id="glow">Movies Throughout the Years, with an acitvity while you watch!</h1>
+              <p class="instructions" id="glow">Search whichever year you'd like and you'll recieve the top 5 movies of that year.<p>
+                <p id="warning-paragraph"></p>
+                <input type="text" class="textarea rounded">
+              </br>
+            <button class="btn rounded px-3" id="search-btn">Search</button>
         </div>
-
+    
         <!-- stored date array ????????-->
-        <div class="year-array">
-            <p>2010 2011 2012 2013 2014 2015</p>
+        <div class="year-array" id="quick-links">
+          <p>Previous:</p>
+          <div id="past-searches"></div>
         </div>
+    </section> 
 
-        
+
+      <main>
         <!-- current year displayed -->
-        <!-- <h2 class="current-year" id="glow">2022</h2> -->
+        <h2 class="year-header flex" id="glow">2022</h2>
         <!-- subtitle -->
         <h3 class="subtitle">Movies:</h3>
-
         <!-- break line -->
-       
+        <hr />
 
        <!-- top 5 movies 2022 -->
-        <div class="grid grid-cols-5 sm:grid-cols-3 lg:grid-cols-5 xl:grid-cols-5 gap-5 ml-10">
+        <div class="movie-container flex grid grid-cols-5 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-5 xl:grid-cols-5 gap-5 ml-10">
           <!-- movie 1 -->
-          <div class="movie-1 w-48">
+          <div class="movie-1">
             <p class="m-title" id="glow">1: Scream</p>
           </br>
-            <!-- <img src="./assets/images/Scream2022.png" width="150px"> -->
-          </div>
+            <img src="./assets/images/Scream2022.png" alt="Scream 2022 Movie Poster" width="160px">
+        </div>
+
           <!-- movie 2 -->
-          <div class="movie-2 w-48">
+          <div class="movie-2">
             <div class="col-span-1"></div>
             <p class="m-title" id="glow">2: Water Gate Bridge</p>
           </br>
-            <!-- <img src="./assets/images/watergate2022.png" width="160px"> -->
+            <img src="./assets/images/watergate2022.png" alt="Water Gate Bridge Movie Poster" width="160px">
           </div>
+
           <!-- movie 3 -->
-          <div class="movie-3 w-48">
-            <p class="m-title" id="glow">3: The 355</p>
+          <div class="movie-3">
+            <p class="m-title" id="glow">3: Jackass Forever</p>
           </br>
-            <!-- <img src="./assets/images/355.png" width="160px"> -->
+            <img src="./assets/images/jackass.png" alt="Jackass Forever Movie Poster" width="160px">
           </div>
+
           <!-- movie 4 -->
-          <div class="movie-4 w-48">
-            <p class="m-title" id="glow">4: Redeeming Love</p>
+          <div class="movie-4">
+            <p class="m-title" id="glow">4: The 355</p>
           </br>
-            <!-- <img src="./assets/images/redeeminglove.png" width="160px"> -->
+            <img src="./assets/images/355.png" alt="The 355 Movie Poster" width="160px">
           </div>
+
           <!-- movie 5 -->
-          <div class="movie-5 w-48">
-            <p class="m-title" id="glow">5: The Policeman's Lineage</p>
+          <div class="movie-5">
+            <p class="m-title" id="glow">5: Moonfall</p>
           </br>
+            <img src="./assets/images/moonfall.png" alt="Moonfall Movie Poster" width="160px">
           </div>
         </div>
-
-        <!-- subtitle -->
-        <div class="subtitle">
-        <h3 class="bored-title">Suggested Activity to do While Watching the Movie:</h3>
-      </div>
-      <button id="generate-activity">Generate Activity</button>
-        <div id="current-activity-container"></div>
+      </main>
         
 
+        <!-- activity -->
+        <div>
+            <h3 class="subtitle1">A fun activity while you watch?</h3>
+            <hr />
+        </div>
 
-
+        <div  class="bored-data">
+          <div id="current-activity-container"></div>
+          <button id="generate-activity" class="act-btn rounded px-3">Generate Activity</button>
+        </div>
 
         <footer class="footer pb-10">
+            <hr /> </br>
             <h4>
                 &copy; 2022 KBCC, Inc
             </h4>
         </footer>
     
-    </section>
     
-    
-    
-    
-   
-
-
-
-
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="assets/js/script.js"></script>

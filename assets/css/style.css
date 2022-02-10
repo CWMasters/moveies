@@ -1,5 +1,8 @@
+* {
+    position: relative;
+}
 
-.navbar .logo {
+.navbar, .logo {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -13,29 +16,52 @@
     font-family: 'Poppins', sans-serif;
     color: white;
     font-weight: bolder;
-} */
+}
 
- .instructions {
+.instructions {
     text-align: center;
     font-size: 15px;
     color: white;
 }
 
-.search-bar {
+/* searchbar */
+.textarea {
     margin-top: 20px;
     font-size: 20px;
     color: black;
 }
 
-/* array of years ?????? */
+/* Year array displayed start */
 .year-array {
     text-align: center;
     color: white;
     padding-top: 20px;
+    font-size: 20px;
 }
 
-.searchBtn {
-    font-size: 20px;  
+.stored-year {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.stored-year :hover {
+    font-weight: bold;
+    color: #fff;
+    text-shadow:
+    0 0 7px #fff,
+    0 0 10px #fff,
+    0 0 21px #fff,
+    0 0 42px rgb(255, 0, 234),
+    0 0 82px rgb(255, 0, 234),
+    0 0 92px rgb(255, 0, 234),
+    0 0 102px rgb(255, 0, 234),
+    0 0 151px rgb(255, 0, 234);
+}
+/* Year array displayed end */
+
+/* Search button */
+.btn {
+    font-size: 20px;
 }
 
 /* Glow to text effect */
@@ -53,15 +79,12 @@
 }
 
 /* background image */
-body {
-    background: url(../images/cinema-dark.png) no-repeat center;
-    background-size: cover;
-    height: 100vh;
-}
-
-.search-bar {
-    margin-left: 80px;
-}
+.background-image { 
+    background: url(../images/cinema-dark.png) no-repeat center; 
+    background-size: cover; 
+    height: 100%; 
+    position: absolute;
+} 
 
 /* thumbnail positions */
 .grid {
@@ -76,41 +99,81 @@ body {
     margin-bottom: 20px;
 }
  
-/* song titles */
-.m-title2 {
-    font-size: 20px;
-}
-
-/* artist name */
-.artist {
-    margin: 0 0 20px 20px;
-    font-size: 15px;
-}
-
-/* .current-year {
+/* Chosen year header */
+.year-header {
     color: white;
     margin: 30px 0 0 20px;
     font-size: 30px;
     font-weight: bold;
-} */
+}
 
-/* movie/song subtitle */
+/* movie subtitle */
 .subtitle {
+    color: white;
+    font-size: 25px;
+    margin: 30px 0 0 20px;
+    font-weight: bold;
+}
+
+/* activity subtitle */
+.subtitle1 {
     color: white;
     font-size: 25px;
     margin: 50px 0 0 20px;
     font-weight: bold;
 }
 
+/* activity */
+.bored-data {
+    color: white;
+    font-size: 20px;
+    text-align: center;
+    margin-top: 15px;
+}
+
+/* next activity button */
+.act-btn {
+    color: white;
+    margin-top: 10px;
+    font-weight: bold; 
+}
+
+.act-btn, .btn {
+    background-image: linear-gradient(45deg, #000000 52%, #FA8BFF 90%);
+    transition: all .5s ease-out;
+    background-size: 1px 100px;
+    background-position: 0 -10px;
+    opacity: 0.7;
+}
+
+.act-btn:hover,
+.btn:hover {
+    opacity: 1;
+}
+
 .footer {
     text-align: center;
     color: white;
+    padding-top: 30px;
+    font-weight: bold;
 }
 
-#current-activity-container {
-    color: white;
+/* mediaquery for cell (575px and smaller) */
+@media screen and (max-width: 575px) {
+   .year-header {
+       font-size: 20px;
+   }
+
+   .year-array {
+    font-size: 15px;
+   }
+
+   .stored-year {
+       font-size: 18px;
+   }
+
+   
+   
 }
 
-#generate-activity {
-    color: white;
-}
+
