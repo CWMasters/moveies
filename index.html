@@ -32,20 +32,20 @@
         <div class="description">
             <h1 id="glow">Movies Throughout the Years, with an acitvity while you watch!</h1>
               <p class="instructions" id="glow">Search whichever year you'd like and you'll recieve the top 5 movies of that year.<p>
-                <input type="text" class="textarea">
+                <input type="text" class="textarea rounded">
               </br>
-            <button class="btn" id="search-btn">Search</button>
+            <button class="btn rounded px-3" id="search-btn">Search</button>
         </div>
     
         <!-- stored date array ????????-->
         <div class="year-array" id="quick-links">
           <p>Previous:
-            <span class="stored-year">
-              <button class="year-1 pl-5" id="stored">2010</button> <!-- placeholders -->
-              <button class="year-2 pl-5" id="stored">2011</button>
-              <button class="year-3 pl-5" id="stored">2012</button>
-              <button class="year-4 pl-5" id="stored">2013</button>
-              <button class="year-5 pl-5" id="stored">2014</button>
+            <span class="stored-year space-x-1.5">
+              <button class="year-1" id="stored">2010</button> <!-- placeholders -->
+              <button class="year-2" id="stored">2011</button>
+              <button class="year-3" id="stored">2012</button>
+              <button class="year-4" id="stored">2013</button>
+              <button class="year-5" id="stored">2014</button>
             </span>
           </p>
         </div>
@@ -107,14 +107,19 @@
             <hr />
         </div>
 
-        <div id="bored-data">
-            <button class="act-btn" id="next-activity"></button>
+        <div  class="bored-data">
+          <div id="current-activity-container"></div>
+          <button id="generate-activity" class="act-btn rounded px-3">Generate Activity</button>
+        </div>
+
+        <!-- <div id="bored-data">
             <p id="activity-type"></p>
             <p id="random-activity"></p>
             <p id="participants"></p>
             <p id="participants"></p>
             <p id="price"></p>
-        </div>
+            <button class="act-btn" id="next-activity">Next Activity</button>
+        </div> -->
 
         
         <footer class="footer pb-10">
@@ -124,10 +129,7 @@
             </h4>
         </footer>
     
-
-    <!-- </div> -->
     
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="assets/js/script.js"></script>

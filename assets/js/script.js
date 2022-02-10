@@ -110,19 +110,42 @@ var loadTasks = function() {
 };
 
 // activity api implementation
-var boredApiUrl = 'https://www.boredapi.com/api/activity'
-var boredBtn = document.querySelector("#next-activity")
+var boredBtn = document.querySelector("#generate-activity")
+var currentActivityContainer = document.getElementById("current-activity-container")
 
-fetch(boredApiUrl)
-.then(response => response.json())
-.then(data => {
-  console.log(data)
-  document.getElementById("activity-type").innerHTML = "Type: " + data.type;
-  document.getElementById("random-activity").innerHTML = "Activity: " + data.activity;
-  document.getElementById("participants").innerHTML = "Participants: " + data.participants;
-  document.getElementById("price").innerHTML = "Price: " + "$" + data.price;
-});
 
+var getActivity = function() {
+  var boredApiUrl = 'https://www.boredapi.com/api/activity'
+  fetch(boredApiUrl)
+  .then(response => response.json())
+  .then(data => {
+    console.log(data)
+    
+    currentActivityContainer.textContent = "";
+    
+    var activityType = document.createElement("p");
+      activityType.textContent = "Type: " + data.type
+      activityType.classList = "text-capitalize";
+      currentActivityContainer.appendChild(activityType);
+
+    var activity = document.createElement("p");
+      activity.textContent = "Activity: " + data.activity
+      activity.classList = "text-capitalize";
+      currentActivityContainer.appendChild(activity);
+
+    var activityParticipants = document.createElement("p");
+      activityParticipants.textContent = "Participants: " + data.participants
+      activityParticipants.classList = "text-capitalize";
+      currentActivityContainer.appendChild(activityParticipants);
+
+    var activityPrice = document.createElement("p");
+      activityPrice.textContent = "Price: " + "$ " + data.price
+      activityPrice.classList = "text-capitalize";
+      currentActivityContainer.appendChild(activityPrice);
+  });
+} 
+
+boredBtn.addEventListener("click", getActivity)
 buttonClick.addEventListener("click", buttonEventHandler);
 
 loadTasks();
