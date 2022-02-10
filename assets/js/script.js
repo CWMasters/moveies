@@ -76,28 +76,40 @@ var loadTasks = function() {
 
 var boredBtn = document.querySelector("#generate-activity")
 var currentActivityContainer = document.getElementById("current-activity-container")
-var datajson;
+
+
 var getActivity = function() {
   var boredApiUrl = 'https://www.boredapi.com/api/activity'
   fetch(boredApiUrl)
   .then(response => response.json())
   .then(data => {
-    datajson = data;
+    console.log(data)
+    
+    var activityType = document.createElement("p");
+      activityType.textContent = "Type: " + data.type
+      activityType.classList = "text-capitalize";
+      currentActivityContainer.appendChild(activityType);
+
+    var activity = document.createElement("p");
+      activity.textContent = "Activity: " + data.activity
+      activity.classList = "text-capitalize";
+      currentActivityContainer.appendChild(activity);
+
+    var activityParticipants = document.createElement("p");
+      activityParticipants.textContent = "Participants: " + data.participants
+      activityParticipants.classList = "text-capitalize";
+      currentActivityContainer.appendChild(activityParticipants);
+
+    var activityPrice = document.createElement("p");
+      activityPrice.textContent = "Price: " + data.price
+      activityPrice.classList = "text-capitalize";
+      currentActivityContainer.appendChild(activityPrice);
   });
-}
+} 
 
-var displayActivity = function(data) {
-  console.log(data)
+boredBtn.addEventListener("click", getActivity)
+buttonClick.addEventListener("click", buttonEventHandler);
 
-  var activityType = document.createElement("p");
-  activityType.textContent = "Type: " + data.type
-  activityType.classList = "text-capitalize";
-  currentActivityContainer.appendChild(activityType);
-}
-
-// boredBtn.addEventListener("click", displayActivity)
-// buttonClick.addEventListener("click", buttonEventHandler);
-getActivity(datajson);
 loadTasks();
 
 

@@ -107,6 +107,10 @@ body {
     color: white;
 }
 
-#bored-data {
+#current-activity-container {
+    color: white;
+}
+
+#generate-activity {
     color: white;
 }
