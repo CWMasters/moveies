@@ -74,21 +74,30 @@ var loadTasks = function() {
     // updateArray();
 };
 
-var boredApiUrl = 'https://www.boredapi.com/api/activity'
-var boredBtn = document.querySelector("#next-activity")
+var boredBtn = document.querySelector("#generate-activity")
+var currentActivityContainer = document.getElementById("current-activity-container")
+var datajson;
+var getActivity = function() {
+  var boredApiUrl = 'https://www.boredapi.com/api/activity'
+  fetch(boredApiUrl)
+  .then(response => response.json())
+  .then(data => {
+    datajson = data;
+  });
+}
 
-fetch(boredApiUrl)
-.then(response => response.json())
-.then(data => {
+var displayActivity = function(data) {
   console.log(data)
-  document.getElementById("activity-type").innerHTML = "Type: " + data.type;
-  document.getElementById("random-activity").innerHTML = "Activity: " + data.activity;
-  document.getElementById("participants").innerHTML = "Participants: " + data.participants;
-  document.getElementById("price").innerHTML = "Price: " + "$" + data.price;
-});
 
-buttonClick.addEventListener("click", buttonEventHandler);
+  var activityType = document.createElement("p");
+  activityType.textContent = "Type: " + data.type
+  activityType.classList = "text-capitalize";
+  currentActivityContainer.appendChild(activityType);
+}
 
+// boredBtn.addEventListener("click", displayActivity)
+// buttonClick.addEventListener("click", buttonEventHandler);
+getActivity(datajson);
 loadTasks();
 
 
