@@ -6,7 +6,19 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    padding: 20px 0px;
+    padding: 10px 0px;
+}
+
+/* new title */
+.move {
+    color: white;
+    font-weight: bolder;
+    font-size: 80px;
+    margin-top: 15px;
+    text-shadow: 2px 2px black;
+}
+.span {
+    color: #f5b8f2;
 }
 
 .description {
@@ -16,6 +28,10 @@
     font-family: 'Poppins', sans-serif;
     color: white;
     font-weight: bolder;
+}
+
+#warning-paragraph {
+    font-size: 20px;
 }
 
 .instructions {
@@ -62,6 +78,7 @@
 /* Search button */
 .btn {
     font-size: 20px;
+    text-shadow: 2px 2px black;
 }
 
 /* Glow to text effect */
@@ -136,6 +153,7 @@
     color: white;
     margin-top: 10px;
     font-weight: bold; 
+    text-shadow: 2px 2px black;
 }
 
 .act-btn, .btn {
@@ -158,20 +176,60 @@
     font-weight: bold;
 }
 
-/* mediaquery for cell (575px and smaller) */
+/* mediaquery for mobile friednly (575px and smaller) */
 @media screen and (max-width: 575px) {
+
+    .move {
+        font-size: 50px;
+    }
+
+    .description {
+        font-size: 20px;
+        margin: 15px 20px 0 20px;
+    }
+
+    .instructions {
+        font-size: 10px;
+        margin: 0 20px 0 20px;
+    }
+
+    .btn {
+        font-size: 15px;
+        margin-top: 10px;
+    }
+
+    .subtitle {
+        font-size: 20px;
+    }
+
+    .subtitle1 {
+        font-size: 20px;
+    }
+
    .year-header {
        font-size: 20px;
    }
 
    .year-array {
-    font-size: 15px;
+        font-size: 15px;
    }
 
    .stored-year {
        font-size: 18px;
    }
 
+   .bored-data {
+       font-size: 15px;
+   }
+
+   .act-btn {
+       font-size: 15px;
+   }
+
+   .m-title {
+        font-size: 20px;
+        grid-row: 1;
+   }
    
    
 }

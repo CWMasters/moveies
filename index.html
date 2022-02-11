@@ -9,39 +9,37 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" />
-    <title>muvies</title>
+    <title>Moveies</title>
 </head>
 <body>
-
     <!-- background image -->
-    <div class="background-image blur-sm">
+    <div class="background-image blur-sm flex">
       <img src="./assets/images/cinema-dark.png">
     </div>
 
-
-    <section>
+    <main>
         <nav class="navbar">
             <div class="width"> 
                 <div class="logo">
-                    <img src="./assets/images/movie-logo-white.png" alt="muvies logo" width="180px" height="40px">
+                    <h1 class="move"><em>Move</em><span class="span">ies</span></h1>
                 </div>
             </div>
         </nav>
     
         <div class="description">
             <h1 id="glow">Movies Throughout the Years, with an acitvity while you watch!</h1>
-              <p class="instructions" id="glow">Search whichever year you'd like and you'll recieve the top 5 movies of that year.<p>
+              <p class="instructions" id="glow">Search whichever year you'd like from 1950 to current and you'll recieve the top 5 movies of that year.<p>
+                  <input type="text" class="textarea rounded">
+                </br>
+                <button class="btn rounded px-3" id="search-btn">Search</button>
                 <p id="warning-paragraph"></p>
-                <input type="text" class="textarea rounded">
-              </br>
-            <button class="btn rounded px-3" id="search-btn">Search</button>
         </div>
     
-        <!-- stored date array ????????-->
-        <!-- <div class="year-array" id="quick-links">
-            <p>Previous:</p>
+        <!-- stored date array -->
+        <div class="year-array" id="quick-links">
             <div id="past-searches" class="stored-year"></div>
-          </div> -->
+            <p>Previous:</p>
+          </div>
 
         <!-- stored date array ????????-->
         <!-- <div class="year-array" id="quick-links">
@@ -55,19 +53,19 @@
             </span>
           </p>
         </div> -->
-    </section> 
+    </main> 
 
 
-      <main>
+      <section>
         <!-- current year displayed -->
         <!-- <h2 class="year-header flex" id="glow">2022</h2> -->
         <!-- subtitle -->
-        <h3 class="subtitle">Top Movies:<span class="year-header" id="glow"></span></h3>
+        <h3 class="subtitle">Top Movies:<span class="year-header" id="glow">2022</span></h3>
         <!-- break line -->
         <hr />
 
        <!-- top 5 movies 2022 -->
-        <div class="movie-container flex grid grid-cols-5 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-5 xl:grid-cols-5 gap-5 ml-10">
+        <div class="grid grid-cols-5 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-5 xl:grid-cols-5 gap-5 ml-10" id="movie-container ">
           <!-- movie 1 -->
           <div class="movie-1">
             <p class="m-title" id="glow">1: Scream</p>
@@ -104,9 +102,9 @@
             <img src="./assets/images/moonfall.png" alt="Moonfall Movie Poster" width="160px">
           </div>
         </div>
-      </main>
+      </section>
         
-
+      <section>
         <!-- activity -->
         <div>
             <h3 class="subtitle1">A fun activity while you watch?</h3>
@@ -117,13 +115,14 @@
           <div id="current-activity-container"></div>
           <button id="generate-activity" class="act-btn rounded px-3">Generate Activity</button>
         </div>
+      </section>
 
-        <footer class="footer pb-10">
-            <hr /> </br>
-            <h4>
-                &copy; 2022 KBC, Inc
-            </h4>
-        </footer>
+      <footer class="footer pb-10">
+        <hr /> </br>
+        <h4>
+            &copy; 2022 KBC, Inc
+        </h4>
+      </footer>
     
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
