@@ -1,8 +1,6 @@
 // array for local storage
 var storedYear = [];
-
-//console.log(document.querySelector(".movie-2").getElementsByClassName(".m-title"));
-
+var firstSelection = 0;
 
 // creating variables to select elements on index.html
 var buttonClick = document.querySelector("#search-btn");
@@ -16,7 +14,7 @@ var currentYear = new Date().getFullYear();
 var buttonEventHandler = function(event) {
     event.preventDefault();
     var input = textBox.value;
-
+    
     // check to ensure input is a year value
     if (isNaN(input)) {
         // display text to ask user for a year input
@@ -31,9 +29,10 @@ var buttonEventHandler = function(event) {
         document.querySelector("#warning-paragraph").textContent = "Please enter a year between 1950 and " + currentYear;
         return;
     }
+    firstSelection = 1;
     // call function to add inputed year to the array
     updateArray(input);
-
+    
     // call function to fetch the api
     fetchApi(input);
     
@@ -49,13 +48,14 @@ var fetchApi = function(year) {
     var requestOptions = {
         method: 'GET',
         redirect: 'follow'
-      };
+    };
     var movieApi = 'https://imdb-api.com/API/AdvancedSearch/k_nxso5xxe?title_type=feature,tv_movie&release_date=' + year + '-01-01,&countries=us&sort=moviemeter,desc';
     fetch(movieApi, requestOptions).then(function(response) {
         if (response.ok) {
             response.json().then(function(data){
                 // console.log(data);
                 for (var i = 0; i < 5; i++) {
+                    var k = i+1;
                     // collect title to display
                     var dataTitle = data.results[i].title
                     // collect image to display
@@ -63,6 +63,7 @@ var fetchApi = function(year) {
                     // add to object and place object in array
                     titleArray.push(dataTitle);
                     imageArray.push(dataImage);
+                    displayData(dataTitle, dataImage, year, k);
                 }
             });
         } else {
@@ -73,35 +74,20 @@ var fetchApi = function(year) {
     .catch(function(error) {
         alert("Unable to connect to IMDb");
     });
-    console.log(titleArray);
-    console.log(imageArray);
-    displayData(titleArray, imageArray, year);
 }
 
 // function to display movie data
-var displayData = function(arrayOfTitles, arrayOfImages, year) {
-
+var displayData = function(title, image, year, index) {
+    
     // updates year displayed to be user input year
     document.querySelector(".year-header").textContent = year;
+    // console.log(title);
+    // console.log(image);
+    
+    var movieClass = document.querySelector(".movie-"+index);
 
-    console.log(arrayOfTitles);
-    console.log(arrayOfImages);
-    // display movie images and titles on page
-    for (var i = 0; i<arrayOfImages.length; i++) {
-        var k = i+1;
-            var generalDiv = document.querySelector(".movie-"+k);
-            // changing the title
-            console.log(arrayOfTitles[i]);
-            generalDiv.firstElementChild.textContent = k + ": " + arrayOfTitles[i];
-            console.log(generalDiv.firstElementChild);
-            // changing the image
-            // console.log(arrayOfImages[i]);
-            // generalDiv.lastElementChild.setAttribute("src", arrayOfImages[i]);
-            // console.log(generalDiv.lastElementChild);
-    }
+        movieClass.innerHTML = "<p class='m-title' id='glow'>"+index+": "+title+"</p> </br> <img src="+image+" width='160px'>"
 }
-
-// function: input year output music
 
 // function: add input year to the array
 var updateArray = function(year) {
@@ -124,8 +110,10 @@ var loadTasks = function() {
     // updateArray();
 };
 
+
 buttonClick.addEventListener("click", buttonEventHandler);
 
+fetchApi(currentYear);
 loadTasks();
 
 // Kiri's key: k_qe9kt9tg
