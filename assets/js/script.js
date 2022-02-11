@@ -1,5 +1,5 @@
 // array for local storage
-var storedYear = [];
+var year = [];
 
 //console.log(document.querySelector(".movie-2").getElementsByClassName(".m-title"));
 
@@ -22,7 +22,7 @@ var buttonEventHandler = function(event) {
       var pastSearches = JSON.parse(localStorage.getItem("year")) || []
       if (pastSearches.indexOf(input) === -1){
           pastSearches.push(input)
-          localStorage.setItem("year", JSON.stringify(pastSearches ))
+          localStorage.setItem("year", JSON.stringify(pastSearches))
           displayData();
         }
       textBox.value = "";
@@ -89,72 +89,83 @@ var displayData = function(arrayOfTitles, arrayOfImages, year) {
     }
 }
 
+function displayPreviousSearches() {
+  var pastHTML = ""
+  var pastSearches = JSON.parse(localStorage.getItem("year")) || []
+  for (i = 0; i< pastSearches.length; i++) {
+    pastHTML = pastSearches
+  } 
+  document.getElementById("past-searches").innerHTML = pastHTML;
+}
+
+
 // function: input year output music
 
 // function: add input year to the array
 var updateArray = function(year) {
-    storedYear.push(year);
-    // need to display on page for user to see (possibly interact with)
-    saveContent();
-};
-
-// function: save local data (saving the year that was gathered from user input)
-var saveContent = function() {
-    localStorage.setItem("year", JSON.stringify(storedYear));
-};
-
-// function: persist local data (reload page each refresh to display the saved data on screen)
-var loadTasks = function() {
-    var storedTasks = localStorage.getItem("year");
-    if (storedTasks) {
+      storedYear.push(year);
+      // need to display on page for user to see (possibly interact with)
+      saveContent();
+  };
+  
+  // // function: save local data (saving the year that was gathered from user input)
+  // var saveContent = function() {
+  //       localStorage.setItem("year", JSON.stringify(storedYear));
+  //   };
+    
+    // function: persist local data (reload page each refresh to display the saved data on screen)
+    var loadTasks = function() {
+      var storedTasks = localStorage.getItem("year");
+      if (storedTasks) {
         storedYear = JSON.parse(storedTasks);
+      }
     }
-    // updateArray();
-};
-
-buttonClick.addEventListener("click", buttonEventHandler);
-
-
-var boredBtn = document.querySelector("#generate-activity")
-var currentActivityContainer = document.getElementById("current-activity-container")
-
-// shows the activity function
-var getActivity = function() {
-  var boredApiUrl = 'https://www.boredapi.com/api/activity'
-  // calling the api
-  fetch(boredApiUrl)
-  .then(response => response.json())
-  .then(data => {
-    // log data in console
-    console.log(data)
-    
-    // resets container element
-    currentActivityContainer.textContent = "";
-    
-    // creating variable for each element pulled from api
-    var activityType = document.createElement("p");
-      activityType.textContent = "Type: " + data.type
-      activityType.classList = "text-capitalize";
-      currentActivityContainer.appendChild(activityType);
-
-    var activity = document.createElement("p");
-      activity.textContent = "Activity: " + data.activity
-      activity.classList = "text-capitalize";
-      currentActivityContainer.appendChild(activity);
-
-    var activityParticipants = document.createElement("p");
-      activityParticipants.textContent = "Participants: " + data.participants
-      activityParticipants.classList = "text-capitalize";
-      currentActivityContainer.appendChild(activityParticipants);
-
-    var activityPrice = document.createElement("p");
-      activityPrice.textContent = "Price: " + "$ " + data.price
-      activityPrice.classList = "text-capitalize";
-      currentActivityContainer.appendChild(activityPrice);
-  });
-}
-
-// once boredBtn is clicked then activity is shown
-boredBtn.addEventListener("click", getActivity)
-
-loadTasks();
+      //     // updateArray();
+      // };
+      
+      buttonClick.addEventListener("click", buttonEventHandler);
+      
+      
+      var boredBtn = document.querySelector("#generate-activity")
+      var currentActivityContainer = document.getElementById("current-activity-container")
+      
+      // shows the activity function
+      var getActivity = function() {
+        var boredApiUrl = 'https://www.boredapi.com/api/activity'
+        // calling the api
+        fetch(boredApiUrl)
+        .then(response => response.json())
+        .then(data => {
+          // log data in console
+          console.log(data)
+          
+          // resets container element
+          currentActivityContainer.textContent = "";
+          
+          // creating variable for each element pulled from api
+          var activityType = document.createElement("p");
+          activityType.textContent = "Type: " + data.type
+          activityType.classList = "text-capitalize";
+          currentActivityContainer.appendChild(activityType);
+          
+          var activity = document.createElement("p");
+          activity.textContent = "Activity: " + data.activity
+          activity.classList = "text-capitalize";
+          currentActivityContainer.appendChild(activity);
+          
+          var activityParticipants = document.createElement("p");
+          activityParticipants.textContent = "Participants: " + data.participants
+          activityParticipants.classList = "text-capitalize";
+          currentActivityContainer.appendChild(activityParticipants);
+          
+          var activityPrice = document.createElement("p");
+          activityPrice.textContent = "Price: " + "$ " + data.price
+          activityPrice.classList = "text-capitalize";
+          currentActivityContainer.appendChild(activityPrice);
+        });
+      }
+      
+      // once boredBtn is clicked then activity is shown
+      boredBtn.addEventListener("click", getActivity)
+      displayPreviousSearches();
+      loadTasks();
