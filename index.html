@@ -17,9 +17,8 @@
     <div class="background-image blur-sm">
       <img src="./assets/images/cinema-dark.png">
     </div>
-<!-- <div class="home"> -->
-    
-    
+
+
     <section>
         <nav class="navbar">
             <div class="width"> 
@@ -32,6 +31,7 @@
         <div class="description">
             <h1 id="glow">Movies Throughout the Years, with an acitvity while you watch!</h1>
               <p class="instructions" id="glow">Search whichever year you'd like and you'll recieve the top 5 movies of that year.<p>
+                <p id="warning-paragraph"></p>
                 <input type="text" class="textarea rounded">
               </br>
             <button class="btn rounded px-3" id="search-btn">Search</button>
@@ -39,24 +39,30 @@
     
         <!-- stored date array ????????-->
         <div class="year-array" id="quick-links">
+            <p>Previous:</p>
+            <div id="past-searches" class="stored-year"></div>
+          </div>
+
+        <!-- stored date array ????????-->
+        <!-- <div class="year-array" id="quick-links">
           <p>Previous:
             <span class="stored-year space-x-1.5">
-              <button class="year-1" id="stored">2010</button> <!-- placeholders -->
+              <button class="year-1" id="stored">2010</button> 
               <button class="year-2" id="stored">2011</button>
               <button class="year-3" id="stored">2012</button>
               <button class="year-4" id="stored">2013</button>
               <button class="year-5" id="stored">2014</button>
             </span>
           </p>
-        </div>
+        </div> -->
     </section> 
 
 
       <main>
         <!-- current year displayed -->
-        <h2 class="year-header flex" id="glow">2022</h2>
+        <!-- <h2 class="year-header flex" id="glow">2022</h2> -->
         <!-- subtitle -->
-        <h3 class="subtitle">Movies:</h3>
+        <h3 class="subtitle">Top Movies:<span class="year-header" id="glow"></span></h3>
         <!-- break line -->
         <hr />
 
@@ -112,20 +118,10 @@
           <button id="generate-activity" class="act-btn rounded px-3">Generate Activity</button>
         </div>
 
-        <!-- <div id="bored-data">
-            <p id="activity-type"></p>
-            <p id="random-activity"></p>
-            <p id="participants"></p>
-            <p id="participants"></p>
-            <p id="price"></p>
-            <button class="act-btn" id="next-activity">Next Activity</button>
-        </div> -->
-
-        
         <footer class="footer pb-10">
             <hr /> </br>
             <h4>
-                &copy; 2022 KBCC, Inc
+                &copy; 2022 KBC, Inc
             </h4>
         </footer>
     

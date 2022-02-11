@@ -1,5 +1,8 @@
 // array for local storage
-var storedYear = [];
+var year = [];
+
+//console.log(document.querySelector(".movie-2").getElementsByClassName(".m-title"));
+
 
 // creating variables to select elements on index.html
 var buttonClick = document.querySelector("#search-btn");
@@ -14,34 +17,23 @@ var buttonEventHandler = function(event) {
     event.preventDefault();
     var input = textBox.value;
 
-    // check to ensure input is a year value
-    if (isNaN(input)) {
-        // display text to ask user for a year input
-        document.querySelector("#warning-paragraph").textContent = "Please enter a year in the input box";
-        return;
-    } else if (1950 <= input && input <= currentYear) {
-        // call the next function
-        document.querySelector("#warning-paragraph").textContent = "";
-        // retrieveMovies(input);
-    } else {
-        // display text to tell user year is out of range for website use
-        document.querySelector("#warning-paragraph").textContent = "Please enter a year between 1950 and " + currentYear;
-        return;
+    if (input) {
+      fetchApi(input);
+      var pastSearches = JSON.parse(localStorage.getItem("year")) || []
+      if (pastSearches.indexOf(input) === -1){
+          pastSearches.push(input)
+          localStorage.setItem("year", JSON.stringify(pastSearches))
+          displayData();
+        }
+      textBox.value = "";
     }
-    // call function to add inputed year to the array
-    updateArray(input);
-
-    // call function to fetch the api
-    fetchApi(input);
-    
-    // clearing text box for user
-    textBox.value = "";
-};
+  };
 
 
 // function: input year output movies
 var fetchApi = function(year) {
-    var dataForYear = [];
+    var titleArray = [];
+    var imageArray = [];
     var requestOptions = {
         method: 'GET',
         redirect: 'follow'
@@ -50,18 +42,15 @@ var fetchApi = function(year) {
     fetch(movieApi, requestOptions).then(function(response) {
         if (response.ok) {
             response.json().then(function(data){
-                console.log(data);
+                // console.log(data);
                 for (var i = 0; i < 5; i++) {
                     // collect title to display
                     var dataTitle = data.results[i].title
-                    console.log(dataTitle);
                     // collect image to display
                     var dataImage = data.results[i].image;
-                    console.log(dataImage);
                     // add to object and place object in array
-                    var dataObj = {title:dataTitle, image:dataImage};
-                    dataForYear.push(dataObj);
-                    console.log(dataForYear);
+                    titleArray.push(dataTitle);
+                    imageArray.push(dataImage);
                 }
             });
         } else {
@@ -72,91 +61,111 @@ var fetchApi = function(year) {
     .catch(function(error) {
         alert("Unable to connect to IMDb");
     });
-    displayData(dataForYear, year);
+    console.log(titleArray);
+    console.log(imageArray);
+    displayData(titleArray, imageArray, year);
 }
 
 // function to display movie data
-var displayData = function(data, year) {
+var displayData = function(arrayOfTitles, arrayOfImages, year) {
+
     // updates year displayed to be user input year
     document.querySelector(".year-header").textContent = year;
+
+    console.log(arrayOfTitles);
+    console.log(arrayOfImages);
     // display movie images and titles on page
-    for (var i = 0; i < data.length; i++) {
-        
+    for (var i = 0; i<arrayOfImages.length; i++) {
+        var k = i+1;
+            var generalDiv = document.querySelector(".movie-"+k);
+            // changing the title
+            console.log(arrayOfTitles[i]);
+            generalDiv.firstElementChild.textContent = k + ": " + arrayOfTitles[i];
+            console.log(generalDiv.firstElementChild);
+            // changing the image
+            // console.log(arrayOfImages[i]);
+            // generalDiv.lastElementChild.setAttribute("src", arrayOfImages[i]);
+            // console.log(generalDiv.lastElementChild);
     }
-    console.log("function called");
 }
+
+function displayPreviousSearches() {
+  var pastHTML = ""
+  var pastSearches = JSON.parse(localStorage.getItem("year")) || []
+  for (i = 0; i< pastSearches.length; i++) {
+    pastHTML = pastSearches
+  } 
+  document.getElementById("past-searches").innerHTML = pastHTML;
+}
+
 
 // function: input year output music
 
 // function: add input year to the array
 var updateArray = function(year) {
-    storedYear.push(year);
-    // need to display on page for user to see (possibly interact with)
-    saveContent();
-};
-
-// function: save local data (saving the year that was gathered from user input)
-var saveContent = function() {
-    localStorage.setItem("year", JSON.stringify(storedYear));
-};
-
-// function: persist local data (reload page each refresh to display the saved data on screen)
-var loadTasks = function() {
-    var storedTasks = localStorage.getItem("year");
-    if (storedTasks) {
+      storedYear.push(year);
+      // need to display on page for user to see (possibly interact with)
+      saveContent();
+  };
+  
+  // // function: save local data (saving the year that was gathered from user input)
+  // var saveContent = function() {
+  //       localStorage.setItem("year", JSON.stringify(storedYear));
+  //   };
+    
+    // function: persist local data (reload page each refresh to display the saved data on screen)
+    var loadTasks = function() {
+      var storedTasks = localStorage.getItem("year");
+      if (storedTasks) {
         storedYear = JSON.parse(storedTasks);
+      }
     }
-    // updateArray();
-};
-
-// activity api implementation
-var boredBtn = document.querySelector("#generate-activity")
-var currentActivityContainer = document.getElementById("current-activity-container")
-
-
-var getActivity = function() {
-  var boredApiUrl = 'https://www.boredapi.com/api/activity'
-  fetch(boredApiUrl)
-  .then(response => response.json())
-  .then(data => {
-    console.log(data)
-    
-    currentActivityContainer.textContent = "";
-    
-    var activityType = document.createElement("p");
-      activityType.textContent = "Type: " + data.type
-      activityType.classList = "text-capitalize";
-      currentActivityContainer.appendChild(activityType);
-
-    var activity = document.createElement("p");
-      activity.textContent = "Activity: " + data.activity
-      activity.classList = "text-capitalize";
-      currentActivityContainer.appendChild(activity);
-
-    var activityParticipants = document.createElement("p");
-      activityParticipants.textContent = "Participants: " + data.participants
-      activityParticipants.classList = "text-capitalize";
-      currentActivityContainer.appendChild(activityParticipants);
-
-    var activityPrice = document.createElement("p");
-      activityPrice.textContent = "Price: " + "$ " + data.price
-      activityPrice.classList = "text-capitalize";
-      currentActivityContainer.appendChild(activityPrice);
-  });
-} 
-
-boredBtn.addEventListener("click", getActivity)
-buttonClick.addEventListener("click", buttonEventHandler);
-
-loadTasks();
-
-// Kiri's key: k_qe9kt9tg
-// Chris's key: k_nxso5xxe
-
-
-
-
-
-
-
-
+      //     // updateArray();
+      // };
+      
+      buttonClick.addEventListener("click", buttonEventHandler);
+      
+      
+      var boredBtn = document.querySelector("#generate-activity")
+      var currentActivityContainer = document.getElementById("current-activity-container")
+      
+      // shows the activity function
+      var getActivity = function() {
+        var boredApiUrl = 'https://www.boredapi.com/api/activity'
+        // calling the api
+        fetch(boredApiUrl)
+        .then(response => response.json())
+        .then(data => {
+          // log data in console
+          console.log(data)
+          
+          // resets container element
+          currentActivityContainer.textContent = "";
+          
+          // creating variable for each element pulled from api
+          var activityType = document.createElement("p");
+          activityType.textContent = "Type: " + data.type
+          activityType.classList = "text-capitalize";
+          currentActivityContainer.appendChild(activityType);
+          
+          var activity = document.createElement("p");
+          activity.textContent = "Activity: " + data.activity
+          activity.classList = "text-capitalize";
+          currentActivityContainer.appendChild(activity);
+          
+          var activityParticipants = document.createElement("p");
+          activityParticipants.textContent = "Participants: " + data.participants
+          activityParticipants.classList = "text-capitalize";
+          currentActivityContainer.appendChild(activityParticipants);
+          
+          var activityPrice = document.createElement("p");
+          activityPrice.textContent = "Price: " + "$ " + data.price
+          activityPrice.classList = "text-capitalize";
+          currentActivityContainer.appendChild(activityPrice);
+        });
+      }
+      
+      // once boredBtn is clicked then activity is shown
+      boredBtn.addEventListener("click", getActivity)
+      displayPreviousSearches();
+      loadTasks();
