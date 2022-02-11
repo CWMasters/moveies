@@ -1,8 +1,6 @@
 // array for local storage
 var year = [];
-
-//console.log(document.querySelector(".movie-2").getElementsByClassName(".m-title"));
-
+var firstSelection = 0;
 
 // creating variables to select elements on index.html
 var buttonClick = document.querySelector("#search-btn");
@@ -42,8 +40,9 @@ var fetchApi = function(year) {
     fetch(movieApi, requestOptions).then(function(response) {
         if (response.ok) {
             response.json().then(function(data){
-                // console.log(data);
-                for (var i = 0; i < 5; i++) {
+              // console.log(data);
+              for (var i = 0; i < 5; i++) {
+                  var k = i+1;
                     // collect title to display
                     var dataTitle = data.results[i].title
                     // collect image to display
@@ -51,6 +50,7 @@ var fetchApi = function(year) {
                     // add to object and place object in array
                     titleArray.push(dataTitle);
                     imageArray.push(dataImage);
+                    displayData(dataTitle, dataImage, year, k);
                 }
             });
         } else {
@@ -61,13 +61,10 @@ var fetchApi = function(year) {
     .catch(function(error) {
         alert("Unable to connect to IMDb");
     });
-    console.log(titleArray);
-    console.log(imageArray);
-    displayData(titleArray, imageArray, year);
 }
 
 // function to display movie data
-var displayData = function(arrayOfTitles, arrayOfImages, year) {
+var displayData = function(title, image, year, index) {
 
     // updates year displayed to be user input year
     document.querySelector(".year-header").textContent = year;
@@ -75,22 +72,33 @@ var displayData = function(arrayOfTitles, arrayOfImages, year) {
     console.log(arrayOfTitles);
     console.log(arrayOfImages);
     // display movie images and titles on page
-    for (var i = 0; i<arrayOfImages.length; i++) {
-        var k = i+1;
-            var generalDiv = document.querySelector(".movie-"+k);
-            // changing the title
-            console.log(arrayOfTitles[i]);
-            generalDiv.firstElementChild.textContent = k + ": " + arrayOfTitles[i];
-            console.log(generalDiv.firstElementChild);
-            // changing the image
-            // console.log(arrayOfImages[i]);
-            // generalDiv.lastElementChild.setAttribute("src", arrayOfImages[i]);
-            // console.log(generalDiv.lastElementChild);
-    }
+    var movieClass = document.querySelector(".movie-"+index);
+
+        movieClass.innerHTML = "<p class='m-title' id='glow'>"+index+": "+title+"</p> </br> <img src="+image+" width='160px'>"
 }
 
+// function: add input year to the array
+var updateArray = function(year) {
+  storedYear.push(year);
+  // need to display on page for user to see (possibly interact with)
+  saveContent();
+ };
+
+// // function: save local data (saving the year that was gathered from user input)
+var saveContent = function() {
+  localStorage.setItem("year", JSON.stringify(storedYear));
+};
+
+// function: persist local data (reload page each refresh to display the saved data on screen)
+var loadTasks = function() {
+  var storedTasks = localStorage.getItem("year");
+  if (storedTasks) {
+    storedYear = JSON.parse(storedTasks);
+  }
+}
+
+
 function displayPreviousSearches() {
-  var pastHTML = ""
   var pastSearches = JSON.parse(localStorage.getItem("year")) || []
   for (i = 0; i< pastSearches.length; i++) {
     pastHTML = pastSearches
@@ -98,32 +106,19 @@ function displayPreviousSearches() {
   document.getElementById("past-searches").innerHTML = pastHTML;
 }
 
-
-// function: input year output music
-
-// function: add input year to the array
-var updateArray = function(year) {
-      storedYear.push(year);
-      // need to display on page for user to see (possibly interact with)
-      saveContent();
-  };
-  
-  // // function: save local data (saving the year that was gathered from user input)
-  // var saveContent = function() {
-  //       localStorage.setItem("year", JSON.stringify(storedYear));
-  //   };
+var saveContent = function() {
+        localStorage.setItem("year", JSON.stringify(storedYear));
+    };
     
     // function: persist local data (reload page each refresh to display the saved data on screen)
-    var loadTasks = function() {
+ var loadTasks = function() {
       var storedTasks = localStorage.getItem("year");
       if (storedTasks) {
         storedYear = JSON.parse(storedTasks);
       }
     }
-      //     // updateArray();
-      // };
       
-      buttonClick.addEventListener("click", buttonEventHandler);
+buttonClick.addEventListener("click", buttonEventHandler);
       
       
       var boredBtn = document.querySelector("#generate-activity")
