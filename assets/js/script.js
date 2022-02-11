@@ -23,6 +23,12 @@ var buttonEventHandler = function(event) {
           localStorage.setItem("year", JSON.stringify(pastSearches))
           displayData();
         }
+        firstSelection = 1;
+    // call function to add inputed year to the array
+    updateArray(input);
+    
+    // call function to fetch the api
+    fetchApi(input);
       textBox.value = "";
     }
   };
