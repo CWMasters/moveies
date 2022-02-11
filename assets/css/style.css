@@ -8,6 +8,17 @@
     justify-content: center;
     padding: 20px 0px;
 }
+.move {
+    color: white;
+    font-weight: bolder;
+    font-size: 80px;
+    margin-top: 15px;
+    
+}
+
+.span {
+    color: #f5b8f2;
+}
 
 .description {
     margin-top: 40px;
@@ -78,17 +89,12 @@
     0 0 151px rgb(255, 0, 234);
 }
 
-body {
-    background-color: black;
-}
-
-/* background image */
-/* .background-image { 
+.background-image { 
     background: url(../images/cinema-dark.png) no-repeat center; 
-    background-size: cover; 
-    height: 100%; 
+    background-size: cover;  
+    width: 100%;
     position: absolute;
-}  */
+} 
 
 /* thumbnail positions */
 .grid {
@@ -117,6 +123,7 @@ body {
     font-size: 25px;
     margin: 30px 0 0 20px;
     font-weight: bold;
+    text-transform: capitalize;
 }
 
 /* activity subtitle */
@@ -160,6 +167,7 @@ body {
     color: white;
     padding-top: 30px;
     font-weight: bold;
+    padding-bottom: 5px;
 }
 
 /* mediaquery for cell (575px and smaller) */
