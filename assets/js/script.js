@@ -1,5 +1,6 @@
 // array for local storage
 var storedYear = [];
+var firstSelection = 0;
 
 // creating variables to select elements on index.html
 var buttonClick = document.querySelector("#search-btn");
@@ -13,7 +14,7 @@ var currentYear = new Date().getFullYear();
 var buttonEventHandler = function(event) {
     event.preventDefault();
     var input = textBox.value;
-
+    
     // check to ensure input is a year value
     if (isNaN(input)) {
         // display text to ask user for a year input
@@ -28,9 +29,10 @@ var buttonEventHandler = function(event) {
         document.querySelector("#warning-paragraph").textContent = "Please enter a year between 1950 and " + currentYear;
         return;
     }
+    firstSelection = 1;
     // call function to add inputed year to the array
     updateArray(input);
-
+    
     // call function to fetch the api
     fetchApi(input);
     
@@ -41,27 +43,27 @@ var buttonEventHandler = function(event) {
 
 // function: input year output movies
 var fetchApi = function(year) {
-    var dataForYear = [];
+    var titleArray = [];
+    var imageArray = [];
     var requestOptions = {
         method: 'GET',
         redirect: 'follow'
-      };
+    };
     var movieApi = 'https://imdb-api.com/API/AdvancedSearch/k_nxso5xxe?title_type=feature,tv_movie&release_date=' + year + '-01-01,&countries=us&sort=moviemeter,desc';
     fetch(movieApi, requestOptions).then(function(response) {
         if (response.ok) {
             response.json().then(function(data){
-                console.log(data);
+                // console.log(data);
                 for (var i = 0; i < 5; i++) {
+                    var k = i+1;
                     // collect title to display
                     var dataTitle = data.results[i].title
-                    console.log(dataTitle);
                     // collect image to display
                     var dataImage = data.results[i].image;
-                    console.log(dataImage);
                     // add to object and place object in array
-                    var dataObj = {title:dataTitle, image:dataImage};
-                    dataForYear.push(dataObj);
-                    console.log(dataForYear);
+                    titleArray.push(dataTitle);
+                    imageArray.push(dataImage);
+                    displayData(dataTitle, dataImage, year, k);
                 }
             });
         } else {
@@ -72,21 +74,20 @@ var fetchApi = function(year) {
     .catch(function(error) {
         alert("Unable to connect to IMDb");
     });
-    displayData(dataForYear, year);
 }
 
 // function to display movie data
-var displayData = function(data, year) {
+var displayData = function(title, image, year, index) {
+    
     // updates year displayed to be user input year
     document.querySelector(".year-header").textContent = year;
-    // display movie images and titles on page
-    for (var i = 0; i < data.length; i++) {
-        
-    }
-    console.log("function called");
-}
+    // console.log(title);
+    // console.log(image);
+    
+    var movieClass = document.querySelector(".movie-"+index);
 
-// function: input year output music
+        movieClass.innerHTML = "<p class='m-title' id='glow'>"+index+": "+title+"</p> </br> <img src="+image+" width='160px'>"
+}
 
 // function: add input year to the array
 var updateArray = function(year) {
@@ -109,8 +110,10 @@ var loadTasks = function() {
     // updateArray();
 };
 
+
 buttonClick.addEventListener("click", buttonEventHandler);
 
+fetchApi(currentYear);
 loadTasks();
 
 // Kiri's key: k_qe9kt9tg
