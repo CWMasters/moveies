@@ -91,7 +91,8 @@
 
 .background-image { 
     background: url(../images/cinema-dark.png) no-repeat center; 
-    background-size: cover;  
+    background-size: cover; 
+    height: 100%; 
     width: 100%;
     position: absolute;
 } 
@@ -162,6 +163,9 @@
     opacity: 1;
 }
 
+.m-title {
+    color: #f5b8f2;
+}
 .footer {
     text-align: center;
     color: white;
