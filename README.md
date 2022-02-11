@@ -13,7 +13,7 @@ To allow the User to search a Year from 1950 to current in order to display the 
 https://cwmasters.github.io/moveies/
 
 ## Screenshot:
-
+![Screen Shot 2022-02-11 at 4 13 45 PM (2)](https://user-images.githubusercontent.com/95546410/153683245-8826d898-dc65-4349-b193-f841b55f25cf.png)
 
 ## Contribution:
 * Kiri Anthony - JavaScript (Implementing the logic for the back end and IMDb API to the project)
