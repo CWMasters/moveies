@@ -15,6 +15,15 @@ var buttonEventHandler = function(event) {
     event.preventDefault();
     var input = textBox.value;
     
+    // if (input) {
+    //     fetchApi(input);
+    //     var pastSearches = JSON.parse(localStorage.getItem("year")) || []
+    //     if (pastSearches.indexOf(input) === -1){
+    //         pastSearches.push(input)
+    //         localStorage.setItem("year", JSON.stringify(pastSearches))
+    //       }
+    //   }
+
     // check to ensure input is a year value
     if (isNaN(input)) {
         // display text to ask user for a year input
@@ -109,6 +118,20 @@ var loadTasks = function() {
     }
     // updateArray();
 };
+
+// Display search history on page
+// function displayPreviousSearches() {
+//     for (var i = storedYear.length; i > storedYear.length-5; i--) {
+
+//         document.querySelector("#past-searches-"+)
+//     }
+//     // var pastHTML = ""
+//     // var pastSearches = JSON.parse(localStorage.getItem("year")) || []
+//     // for (i = 0; i< pastSearches.length; i++) {
+//     //   pastHTML = pastSearches
+//     // } 
+//     // document.getElementById("past-searches").innerHTML = pastHTML;
+//   }
 
 
 buttonClick.addEventListener("click", buttonEventHandler);
