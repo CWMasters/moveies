@@ -14,140 +14,74 @@
     <title>muvies</title>
 </head>
 <body>
-    <section class="home">
+
+    <!-- background image -->
+    <div class="background-image blur-sm">
+      <img src="./assets/images/cinema-dark.png">
+    </div>
+
+
+    <section>
         <nav class="navbar">
             <div class="width"> 
                 <div class="logo">
-                    <img src="./assets/images/movie-logo-white.png" alt="muvies logo" width="180px" height="40px">
+                    <h1 class="move"><em>Move</em><span class="span">ies</span></h1>
                 </div>
             </div>
         </nav>
-
+    
         <div class="description">
-            <h1 id="glow">Songs & Movies Throughout the Years!</h1>
-              <p class="instructions" id="glow">Search whichever year you'd like and you'll recieve the top 5 songs and movies of that year.<p>
+            <h1 id="glow">Movies Throughout the Years, with an acitvity while you watch!</h1>
+              <p class="instructions" id="glow">Search whichever year you'd like and you'll recieve the top 5 movies of that year.<p>
                 <p id="warning-paragraph"></p>
-                <input type="text" class="textarea">
+                <input type="text" class="textarea rounded">
               </br>
-            <button class="btn" id="search-btn">Search</button>
+            <button class="btn rounded px-3" id="search-btn">Search</button>
         </div>
+    </section> 
 
-        <!-- stored date array ????????-->
-        <div class="year-array" id="quick-links">
-            <p>Search History:</p>
-            <button>2010</button> <!-- placeholders -->
-            <button>2011</button>
-            <button>2012</button>
-            <button>2013</button>
-            <button>2014</button>
-        </div>
 
+      <main>
         <!-- current year displayed -->
-        <h2 class="year-header" id="glow">2022</h2>
         <!-- subtitle -->
-        <h3 class="subtitle">Movies:</h3>
+        <h3 class="subtitle">Top Movies:<span class="year-header" id="glow"></span></h3>
         <!-- break line -->
         <hr />
-
-       <!-- top 5 movies 2022 -->
-        <div class="grid grid-cols-5 sm:grid-cols-3 lg:grid-cols-5 xl:grid-cols-5 gap-5 ml-10">
-          <!-- movie 1 -->
-          <div class="movie-1 w-48">
-            <p class="m-title" id="glow">1: Scream</p>
-          </br>
-            <img src="./assets/images/Scream2022.png" width="160px">
-          </div>
-          <!-- movie 2 -->
-          <div class="movie-2 w-48">
-            <div class="col-span-1"></div>
-            <p class="m-title" id="glow">2: Water Gate Bridge</p>
-          </br>
-            <img src="./assets/images/watergate2022.png" width="160px">
-          </div>
-          <!-- movie 3 -->
-          <div class="movie-3 w-48">
-            <p class="m-title" id="glow">3: Jackass Forever</p>
-          </br>
-            <img src="./assets/images/jackass.png" width="160px">
-          </div>
-          <!-- movie 4 -->
-          <div class="movie-4 w-48">
-            <p class="m-title" id="glow">4: The 355</p>
-          </br>
-            <img src="./assets/images/355.png" width="160px">
-          </div>
-          <!-- movie 5 -->
-          <div class="movie-5 w-48">
-            <p class="m-title" id="glow">5: Moonfall</p>
-          </br>
-            <img src="./assets/images/moonfall.png" width="160px">
-          </div>
+        
+        <!-- top 5 movies 2022 -->
+        <div class="movie-container flex grid grid-cols-5 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-5 xl:grid-cols-5 gap-5 ml-10" id="current-movies">
+          <p class="m-title" id="glow"></p>
         </div>
-
-        <!-- subtitle -->
-        <h3 class="subtitle">Songs:</h3>
-        <!-- break line -->
+        
+        <button class="subtitle upcoming-subtitle" id="upcoming-movies-btn">Upcoming Movies:<span class="year-header" id="glow"></span></button>
         <hr />
-
-        <!-- top 5 songs 2022 -->
-        <div class="grid grid-cols-5 sm:grid-cols-3 lg:grid-cols-5 xl:grid-cols-5 gap-5 ml-10 pb-20">
-          <!-- song 1-->
-          <div class="song-1">
-            <p class="m-title2" id="glow">1: Cold Heart</p>
-            <p class="artist" id="glow">PNAU Remix</p>
-            <img src="./assets/images/PNAU.png" width="120px" height="150px">
-          </div>
-          <!-- song 2 -->
-          <div class="song-2">
-            <div class="col-span-1"></div>
-            <p class="m-title2" id="glow">2: Heat waves</p>
-            <p class="artist" id="glow">Glass Animals</p>
-            <img src="./assets/images/glassanimals.png" width="130px" height="150px">
-          </div>
-          <!-- song 3 -->
-          <div class="song-3">
-            <p class="m-title2" id="glow">3: STAY</p>
-            <p class="artist" id="glow">The Kid LAROI</p>
-            <img src="./assets/images/laroi.png" width="120px" height="150px">
-          </div>
-          <!-- song 4 -->
-          <div class="song-4">
-            <p class="m-title2" id="glow">4: Pushin P</p>
-            <p class="artist" id="glow">Gunna, Future, Young Thug</p>
-            <img src="./assets/images/pushinp.png" width="120px" height="150px">
-          </div>
-          <!-- song 5 -->
-          <div class="song-5">
-            <p class="m-title2" id="glow">5: Shivers</p>
-            <p class="artist" id="glow">Ed Sheeran</p>
-            <img src="./assets/images/shivers.png" width="120px" height="150px">
-          </div>
+        <div class="movie-container flex grid grid-cols-5 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-5 xl:grid-cols-5 gap-5 ml-10" id="upcoming-movies">
+            <p class="m-title" id="glow"></p>
         </div>
 
+  
+      </main>
+        
 
+        <!-- activity -->
+        <div>
+            <h3 class="subtitle1">A fun activity while you watch?</h3>
+            <hr />
+        </div>
+
+        <div  class="bored-data">
+          <div id="current-activity-container"></div>
+          <button id="generate-activity" class="act-btn rounded px-3">Generate Activity</button>
+        </div>
 
         <footer class="footer pb-10">
+            <hr /> </br>
             <h4>
-                &copy; 2022 KBCC, Inc
+                &copy; 2022 KBC, Inc
             </h4>
         </footer>
     
-    </section>
-
-    <p class="card">PLACEHOLDER - CARDS FOR TOP 5 MOVIES</p>
-
-
-    <p>PLACEHOLDER - CARDS FOR TOP 5 SONGS</p>
     
-    
-    
-    
-   
-
-
-
-
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="assets/js/script.js"></script>

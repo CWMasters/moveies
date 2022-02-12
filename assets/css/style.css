@@ -1,13 +1,35 @@
 * {
+<<<<<<< HEAD
     
    
 }
 
 .navbar .logo {
+=======
+    position: relative;
+    font-family: 'Poppins', sans-serif;
+}
+
+.navbar, .logo {
+>>>>>>> 1f65f296c21575e8cba566bb9899e88a20302138
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     padding: 20px 0px;
+<<<<<<< HEAD
+=======
+}
+.move {
+    color: white;
+    font-weight: bolder;
+    font-size: 80px;
+    margin-top: 15px;
+    
+}
+
+.span {
+    color: #f5b8f2;
+>>>>>>> 1f65f296c21575e8cba566bb9899e88a20302138
 }
 
 .description {
@@ -25,17 +47,26 @@
     color: white;
 }
 
+<<<<<<< HEAD
+=======
+/* searchbar */
+>>>>>>> 1f65f296c21575e8cba566bb9899e88a20302138
 .textarea {
     margin-top: 20px;
     font-size: 20px;
     color: black;
 }
 
+<<<<<<< HEAD
 /* array of years ?????? */
+=======
+/* Year array displayed start */
+>>>>>>> 1f65f296c21575e8cba566bb9899e88a20302138
 .year-array {
     text-align: center;
     color: white;
     padding-top: 20px;
+<<<<<<< HEAD
     font-size: 22px;
     font-weight: bold;
 }
@@ -46,6 +77,32 @@
     color: rgb(0, 247, 193);
 } */
 
+=======
+    font-size: 20px;
+}
+
+.stored-year {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.stored-year :hover {
+    font-weight: bold;
+    color: #fff;
+    text-shadow:
+    0 0 7px #fff,
+    0 0 10px #fff,
+    0 0 21px #fff,
+    0 0 42px rgb(255, 0, 234),
+    0 0 82px rgb(255, 0, 234),
+    0 0 92px rgb(255, 0, 234),
+    0 0 102px rgb(255, 0, 234),
+    0 0 151px rgb(255, 0, 234);
+}
+/* Year array displayed end */
+
+/* Search button */
+>>>>>>> 1f65f296c21575e8cba566bb9899e88a20302138
 .btn {
     font-size: 20px;
 }
@@ -64,6 +121,7 @@
     0 0 151px rgb(255, 0, 234);
 }
 
+<<<<<<< HEAD
 /* background image */
 .home {
     background: url(../images/cinema-dark.png) no-repeat center;
@@ -76,6 +134,15 @@
     filter: blur(3px);
   -webkit-filter: blur(8px); */
 }
+=======
+.background-image { 
+    background: url(../images/cinema-dark.png) no-repeat center; 
+    background-size: cover; 
+    height: 100%; 
+    width: 100%;
+    position: absolute;
+} 
+>>>>>>> 1f65f296c21575e8cba566bb9899e88a20302138
 
 /* thumbnail positions */
 .grid {
@@ -86,6 +153,7 @@
 
 /* movie titles */
 .m-title {
+<<<<<<< HEAD
     font-size: 20px;
     margin-bottom: 20px;
 }
@@ -101,6 +169,13 @@
     font-size: 15px;
 }
 
+=======
+    font-size: 15px;
+    margin-bottom: 20px;
+}
+ 
+/* Chosen year header */
+>>>>>>> 1f65f296c21575e8cba566bb9899e88a20302138
 .year-header {
     color: white;
     margin: 30px 0 0 20px;
@@ -108,6 +183,7 @@
     font-weight: bold;
 }
 
+<<<<<<< HEAD
 /* movie/song subtitle */
 .subtitle {
     color: white;
@@ -123,3 +199,92 @@
 
 
 
+=======
+/* movie subtitle */
+.subtitle {
+    color: white;
+    font-size: 25px;
+    margin: 30px 0 0 20px;
+    font-weight: bold;
+    text-transform: capitalize;
+}
+
+.upcoming-subtitle:hover {
+    color: #f5b8f2;
+    
+}
+
+/* activity subtitle */
+.subtitle1 {
+    color: white;
+    font-size: 25px;
+    margin: 50px 0 0 20px;
+    font-weight: bold;
+}
+.current-movie-img {
+    margin-top: 5px;
+}
+
+.current-description {
+    font-size: 12px;
+}
+
+/* activity */
+.bored-data {
+    color: white;
+    font-size: 20px;
+    text-align: center;
+    margin-top: 15px;
+}
+
+/* next activity button */
+.act-btn {
+    color: white;
+    margin-top: 10px;
+    font-weight: bold; 
+}
+
+.act-btn, .btn {
+    background-image: linear-gradient(45deg, #000000 52%, #FA8BFF 90%);
+    transition: all .5s ease-out;
+    background-size: 1px 100px;
+    background-position: 0 -10px;
+    opacity: 0.7;
+}
+
+.act-btn:hover,
+.btn:hover {
+    opacity: 1;
+}
+
+.m-title {
+    color: #f5b8f2;
+}
+.footer {
+    text-align: center;
+    color: white;
+    padding-top: 30px;
+    font-weight: bold;
+    padding-bottom: 5px;
+}
+
+/* mediaquery for cell (575px and smaller) */
+@media screen and (max-width: 575px) {
+   .year-header {
+       font-size: 20px;
+   }
+
+   .year-array {
+    font-size: 15px;
+   }
+
+   .stored-year {
+       font-size: 18px;
+   }
+
+   
+   
+}
+
+
+>>>>>>> 1f65f296c21575e8cba566bb9899e88a20302138
