@@ -1,5 +1,6 @@
 * {
     position: relative;
+    font-family: 'Poppins', sans-serif;
 }
 
 .navbar, .logo {
@@ -106,7 +107,7 @@
 
 /* movie titles */
 .m-title {
-    font-size: 20px;
+    font-size: 15px;
     margin-bottom: 20px;
 }
  
@@ -127,12 +128,24 @@
     text-transform: capitalize;
 }
 
+.upcoming-subtitle:hover {
+    color: #f5b8f2;
+    
+}
+
 /* activity subtitle */
 .subtitle1 {
     color: white;
     font-size: 25px;
     margin: 50px 0 0 20px;
     font-weight: bold;
+}
+.current-movie-img {
+    margin-top: 5px;
+}
+
+.current-description {
+    font-size: 12px;
 }
 
 /* activity */

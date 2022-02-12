@@ -1,6 +1,8 @@
 var movieApi = 'https://api.themoviedb.org/3/movie/popular?&api_key=595a81aaf7fd3fbfb9c04c8e9014c265'
 var upcomingMovieApi = 'https://api.themoviedb.org/3/movie/upcoming?&api_key=595a81aaf7fd3fbfb9c04c8e9014c265'
 var input = "";
+var upcomingMoviesBtn = document.getElementById("upcoming-movies-btn")
+
 function currentMovies() {
     fetch(movieApi)
     .then(repsonse => repsonse.json())
@@ -12,12 +14,12 @@ function currentMovies() {
             `<div class="card-body w-100">
             <p>${data.results[i].release_date}</p>
             <h4 class="m-title" id="glow">${data.results[i].title}</h4>
-            <img src="http://image.tmdb.org/t/p/w185/${data.results[i].poster_path}">
-            <h6>${data.results[i].overview}</h6>
+            <img src="http://image.tmdb.org/t/p/w185/${data.results[i].poster_path}" class="current-movie-img">
             </div>`
         }
         document.getElementById("current-movies").innerHTML = currentHtml
-    })  
+        // <p class="current-description">${data.results[i].overview}</p>
+    }) 
 }
 
 function getUpcomingMovies() {
@@ -82,6 +84,6 @@ var getActivity = function() {
 
 // once boredBtn is clicked then activity is shown
 boredBtn.addEventListener("click", getActivity)
-
 currentMovies();
-getUpcomingMovies();
+upcomingMoviesBtn.addEventListener("click", getUpcomingMovies)
+
