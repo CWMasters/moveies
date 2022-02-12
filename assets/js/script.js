@@ -10,8 +10,9 @@ function currentMovies() {
         for (i=0; i < 5; i++){
             currentHtml += 
             `<div class="card-body w-100">
-            <h4 class="m-title" id="glow">${data.results[i].title}</h4>
             <p>${data.results[i].release_date}</p>
+            <h4 class="m-title" id="glow">${data.results[i].title}</h4>
+            <img src="http://image.tmdb.org/t/p/w185/${data.results[i].poster_path}">
             <h6>${data.results[i].overview}</h6>
             </div>`
         }
@@ -29,8 +30,9 @@ function getUpcomingMovies() {
         for (i=0; i < 5; i++){
             upcomingHtml += 
             `<div class="card-body w-100">
-            <h4 class="m-title" id="glow">${data.results[i].title}</h4>
             <p>${data.results[i].release_date}</p>
+            <h4 class="m-title" id="glow">${data.results[i].title}</h4>
+            <img src="http://image.tmdb.org/t/p/w185/${data.results[i].poster_path}">
             <h6>${data.results[i].overview}</h6>
             </div>`
         }
