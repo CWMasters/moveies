@@ -5,7 +5,7 @@ searchBtn.addEventListener("click", function(event){
     event.preventDefault();
     var year = document.getElementById("search").value
     
-    var yearCallApi =` https://api.themoviedb.org/3/discover/movie?primary_release_year=${year}&sort_by=vote_average.desc?&api_key=595a81aaf7fd3fbfb9c04c8e9014c265`
+    var yearCallApi =` https://api.themoviedb.org/3/discover/movie?primary_release_year=${year}&sort_by=popularity.desc&api_key=595a81aaf7fd3fbfb9c04c8e9014c265&language=en-US`
     fetch(yearCallApi).then(response => response.json()).then(data => {
         console.log(data)
         var yearInfoHtml = ""
@@ -23,7 +23,7 @@ searchBtn.addEventListener("click", function(event){
                 </div>
                 </div>`
             } else {
-                currentHtml += 
+                yearInfoHtml += 
                 `<div class="card-body w-100">
                 <p>${data.results[i].release_date}</p>
                 <h4 class="m-title" id="glow">${data.results[i].title}</h4>
