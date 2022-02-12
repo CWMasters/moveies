@@ -37,10 +37,13 @@
 }
 
 /* searchbar */
-.textarea {
+.search {
     margin-top: 20px;
     font-size: 20px;
     color: black;
+    text-align: center;
+    border: 2px solid #f5b8f2;
+    border-radius: 50px;
 }
 
 /* Year array displayed start */
@@ -110,6 +113,7 @@
     font-size: 15px;
     margin-bottom: 20px;
 }
+
  
 /* Chosen year header */
 .year-header {
