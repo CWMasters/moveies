@@ -1,6 +1,6 @@
 # Moveies
 
-## Purpose
+## Purpose:
 To allow the User to search any Year in order to display the top 5 movies from said year, 5 upcoming most anticipated Movies by clicking the (Upcoming Movies) header and an addition of a fun/random activity to take part in while you watch (or at any time) at just the click of a button.
 
 ## Built using:
@@ -9,7 +9,7 @@ To allow the User to search any Year in order to display the top 5 movies from s
 * JavaScript
 * Tailwind 
 
-## API's
+## API's:
 * TMDB (The Movie DB)
 * Bored
 
