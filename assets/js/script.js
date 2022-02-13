@@ -1,9 +1,14 @@
 var movieApi = 'https://api.themoviedb.org/3/movie/popular?&api_key=595a81aaf7fd3fbfb9c04c8e9014c265'
 var upcomingMovieApi = 'https://api.themoviedb.org/3/movie/upcoming?&api_key=595a81aaf7fd3fbfb9c04c8e9014c265'
 var searchBtn = document.getElementById("search-btn")
+// array for local storage
+var storedYear = [];
 searchBtn.addEventListener("click", function(event){
     event.preventDefault();
     var year = document.getElementById("search").value
+
+    storedYear.push(year);
+    saveContent();
     
     var yearCallApi =` https://api.themoviedb.org/3/discover/movie?primary_release_year=${year}&sort_by=popularity.desc&api_key=595a81aaf7fd3fbfb9c04c8e9014c265&language=en-US`
     fetch(yearCallApi).then(response => response.json()).then(data => {
@@ -75,7 +80,10 @@ function getUpcomingMovies() {
             <p>${data.results[i].release_date}</p>
             <h4 class="m-title" id="glow">${data.results[i].title}</h4>
             <img src="http://image.tmdb.org/t/p/w185/${data.results[i].poster_path}">
-            <h6>${data.results[i].overview}</h6>
+            <div class="overview">
+            <h3>Overview</h3>
+            ${data.results[i].overview}
+            </div>
             </div>`
         }
       document.getElementById("upcoming-movies").innerHTML = upcomingHtml
@@ -122,7 +130,22 @@ var getActivity = function() {
     });
 }
 
+// function: save local data (saving the year that was gathered from user input)
+var saveContent = function() {
+    localStorage.setItem("year", JSON.stringify(storedYear));
+};
+
+// function: persist local data (reload page each refresh to display the saved data on screen)
+var loadTasks = function() {
+    var storedTasks = localStorage.getItem("year");
+    if (storedTasks) {
+        storedYear = JSON.parse(storedTasks);
+    }
+};
+
 // once boredBtn is clicked then activity is shown
 boredBtn.addEventListener("click", getActivity)
 currentMovies();
 upcomingMoviesBtn.addEventListener("click", getUpcomingMovies)
+
+loadTasks();
