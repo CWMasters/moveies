@@ -1,13 +1,17 @@
 # Moveies
 
 ## Purpose
-To allow the User to search a Year from 1950 to current in order to display the top 5 movies from said year, with the addition of a fun/random activity to take part in as you watch (or at any time) at just the click of a button.
+To allow the User to search any Year in order to display the top 5 movies from said year, 5 upcoming most anticipated Movies by clicking the (Upcoming Movies) header and an addition of a fun/random activity to take part in while you watch (or at any time) at just the click of a button.
 
 ## Built using:
 * HTML
 * CSS
 * JavaScript
 * Tailwind 
+
+## API's
+* TMDB (The Movie DB)
+* Bored
 
 ## Website URL:
 https://cwmasters.github.io/moveies/
@@ -16,33 +20,7 @@ https://cwmasters.github.io/moveies/
 ![Screen Shot 2022-02-11 at 4 13 45 PM (2)](https://user-images.githubusercontent.com/95546410/153683245-8826d898-dc65-4349-b193-f841b55f25cf.png)
 
 ## Contribution:
-* Kiri Anthony - JavaScript (Implementing the logic for the back end and IMDb API to the project)
-* Becca Hurtado - HTML/CSS/Javascript (Initial HTML body/background and title with styling and implementation of Bored API to the project)
-* Chris Masters - HTML/CSS/Tailwind (Design of the page and implementation of Tailwind)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Your project should fulfill the following requirements:
-
-Use client-side storage to store persistent data.
-
-Be responsive.
-
-Have a clean repository that meets quality coding standards (file structure, naming conventions, follows best practices for class/id naming conventions, indentation, quality comments, etc.).
-
-Have a quality README (with unique name, description, technologies used, screenshot, and link to deployed application).
-
-Finally, you must add your project to the portfolio that you created in Module 2.
+* Kiri Anthony: JavaScript - Implementing the logic for the back end and TMDB (The Movie DB) API to the project.
+* Becca Hurtado: HTML/CSS/Javascript - Initial HTML body/background and title with styling and implementation of Bored API to the project.
+* Chris Masters: HTML/CSS/Tailwind - Design of the page and implementation of Tailwind.
 
