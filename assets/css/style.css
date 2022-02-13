@@ -50,11 +50,18 @@
 <<<<<<< HEAD
 =======
 /* searchbar */
+<<<<<<< HEAD
 >>>>>>> 1f65f296c21575e8cba566bb9899e88a20302138
 .textarea {
+=======
+.search {
+>>>>>>> bda1a5d0ce22e0f967b96fec52b2786063431095
     margin-top: 20px;
     font-size: 20px;
     color: black;
+    text-align: center;
+    border: 2px solid #f5b8f2;
+    border-radius: 50px;
 }
 
 <<<<<<< HEAD
@@ -173,6 +180,7 @@
     font-size: 15px;
     margin-bottom: 20px;
 }
+
  
 /* Chosen year header */
 >>>>>>> 1f65f296c21575e8cba566bb9899e88a20302138

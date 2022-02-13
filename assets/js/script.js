@@ -1,8 +1,46 @@
-var movieApi = 'https://api.themoviedb.org/3/movie/popular?&api_key=595a81aaf7fd3fbfb9c04c8e9014c265';
-var upcomingMovieApi = 'https://api.themoviedb.org/3/movie/upcoming?&api_key=595a81aaf7fd3fbfb9c04c8e9014c265';
-var input = "";
-var upcomingMoviesBtn = document.getElementById("upcoming-movies-btn");
+var movieApi = 'https://api.themoviedb.org/3/movie/popular?&api_key=595a81aaf7fd3fbfb9c04c8e9014c265'
+var upcomingMovieApi = 'https://api.themoviedb.org/3/movie/upcoming?&api_key=595a81aaf7fd3fbfb9c04c8e9014c265'
+var searchBtn = document.getElementById("search-btn")
+searchBtn.addEventListener("click", function(event){
+    event.preventDefault();
+    var year = document.getElementById("search").value
+    
+    var yearCallApi =` https://api.themoviedb.org/3/discover/movie?primary_release_year=${year}&sort_by=popularity.desc&api_key=595a81aaf7fd3fbfb9c04c8e9014c265&language=en-US`
+    fetch(yearCallApi).then(response => response.json()).then(data => {
+        console.log(data)
+        var yearInfoHtml = ""
+        for (i=0; i < 5; i++){
+            if(data.results[i].poster_path) {
 
+                yearInfoHtml += 
+                `<div class="card-body w-100">
+                <p>${data.results[i].release_date}</p>
+                <h4 class="m-title" id="glow">${data.results[i].title}</h4>
+                <img src="http://image.tmdb.org/t/p/w185/${data.results[i].poster_path}" class="current-movie-img">
+                <div class="overview">
+                <h3>Overview</h3>
+                ${data.results[i].overview}
+                </div>
+                </div>`
+            } else {
+                yearInfoHtml += 
+                `<div class="card-body w-100">
+                <p>${data.results[i].release_date}</p>
+                <h4 class="m-title" id="glow">${data.results[i].title}</h4>
+                <img src="./assets/images/placeholder-img.jpg">
+                <div class="overview">
+                <h3>Overview</h3>
+                ${data.results[i].overview}
+                </div>
+                </div>`
+            }
+        }
+        document.getElementById("current-movies").innerHTML = yearInfoHtml
+    })
+})
+var input = "";
+var upcomingMoviesBtn = document.getElementById("upcoming-movies-btn")
+var form = document.getElementById("form")
 function currentMovies() {
     fetch(movieApi)
     .then(repsonse => repsonse.json())
@@ -15,12 +53,24 @@ function currentMovies() {
             <p>${data.results[i].release_date}</p>
             <h4 class="m-title" id="glow">${data.results[i].title}</h4>
             <img src="http://image.tmdb.org/t/p/w185/${data.results[i].poster_path}" class="current-movie-img">
+            <div class="overview">
+            <h3>Overview</h3>
+            ${data.results[i].overview}
+            </div>
             </div>`
         }
         document.getElementById("current-movies").innerHTML = currentHtml
-        // <p class="current-description">${data.results[i].overview}</p>
     }) 
 }
+
+form.addEventListener('submit', (event) => {
+    event.preventDefault()
+    searchValue = search.value
+    if (searchValue) {
+        currentMovies(searchValue)
+        searchValue = ''
+    }
+})
 
 function getUpcomingMovies() {
     fetch(upcomingMovieApi)
