@@ -63,15 +63,6 @@ function currentMovies() {
     }) 
 }
 
-form.addEventListener('submit', (event) => {
-    event.preventDefault()
-    searchValue = search.value
-    if (searchValue) {
-        currentMovies(searchValue)
-        searchValue = ''
-    }
-})
-
 function getUpcomingMovies() {
     fetch(upcomingMovieApi)
     .then(repsonse => repsonse.json())
