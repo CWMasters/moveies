@@ -3,6 +3,7 @@ var upcomingMovieApi = 'https://api.themoviedb.org/3/movie/upcoming?&api_key=595
 var searchBtn = document.getElementById("search-btn")
 // array for local storage
 var storedYear = [];
+
 searchBtn.addEventListener("click", function(event){
     event.preventDefault();
     var year = document.getElementById("search").value
@@ -154,4 +155,5 @@ var loadTasks = function() {
 boredBtn.addEventListener("click", getActivity)
 currentMovies();
 upcomingMoviesBtn.addEventListener("click", getUpcomingMovies)
+
 loadTasks();
