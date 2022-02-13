@@ -1,12 +1,13 @@
 * {
     position: relative;
+    font-family: 'Poppins', sans-serif;
 }
 
 .navbar, .logo {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    padding: 10px 0px;
+    padding: 20px 0px;
 }
 
 /* new title */
@@ -22,63 +23,37 @@
 }
 
 .description {
-    margin-top: 40px;
+    margin-top: 20px;
     text-align: center;
     font-size: 30px;
-    font-family: 'Poppins', sans-serif;
+    /* font-family: 'Poppins', sans-serif; */
     color: white;
     font-weight: bolder;
-}
-
-#warning-paragraph {
-    font-size: 20px;
 }
 
 .instructions {
     text-align: center;
     font-size: 15px;
     color: white;
+    margin: 30px 80px 0 80px;
 }
 
 /* searchbar */
-.textarea {
-    margin-top: 20px;
+.search {
+    /* margin-bottom: 20px; */
     font-size: 20px;
     color: black;
-}
-
-/* Year array displayed start */
-.year-array {
     text-align: center;
-    color: white;
-    padding-top: 20px;
-    font-size: 20px;
+    border: 2px solid #f5b8f2;
+    border-radius: 50px;
+    width: 200px;
 }
-
-.stored-year {
-    font-size: 25px;
-    font-weight: bold;
-}
-
-.stored-year :hover {
-    font-weight: bold;
-    color: #fff;
-    text-shadow:
-    0 0 7px #fff,
-    0 0 10px #fff,
-    0 0 21px #fff,
-    0 0 42px rgb(255, 0, 234),
-    0 0 82px rgb(255, 0, 234),
-    0 0 92px rgb(255, 0, 234),
-    0 0 102px rgb(255, 0, 234),
-    0 0 151px rgb(255, 0, 234);
-}
-/* Year array displayed end */
 
 /* Search button */
-.btn {
-    font-size: 20px;
-    text-shadow: 2px 2px black;
+.search-btn {
+    font-size: 25px;
+    /* text-shadow: 2px 2px black; */
+    margin-bottom: 20px;
 }
 
 /* Glow to text effect */
@@ -100,6 +75,7 @@
     background: url(../images/cinema-dark.png) no-repeat center; 
     background-size: cover; 
     height: 100%; 
+    width: 100%;
     position: absolute;
 } 
 
@@ -116,20 +92,25 @@
     margin-bottom: 20px;
 }
  
-/* Chosen year header */
-.year-header {
-    color: white;
-    margin: 30px 0 0 20px;
-    font-size: 30px;
-    font-weight: bold;
-}
-
 /* movie subtitle */
 .subtitle {
     color: white;
     font-size: 25px;
     margin: 30px 0 0 20px;
     font-weight: bold;
+}
+
+.upcoming-subtitle:hover {
+    color: #fff;
+  text-shadow:
+    0 0 7px #fff,
+    0 0 10px #fff,
+    0 0 21px #fff,
+    0 0 42px rgb(255, 0, 234),
+    0 0 82px rgb(255, 0, 234),
+    0 0 92px rgb(255, 0, 234),
+    0 0 102px rgb(255, 0, 234),
+    0 0 151px rgb(255, 0, 234);
 }
 
 /* activity subtitle */
@@ -161,12 +142,11 @@
     transition: all .5s ease-out;
     background-size: 1px 100px;
     background-position: 0 -10px;
-    opacity: 0.7;
+    opacity: 1;
 }
 
-.act-btn:hover,
-.btn:hover {
-    opacity: 1;
+.act-btn:hover {
+    opacity: 0.7;
 }
 
 .footer {
@@ -174,6 +154,7 @@
     color: white;
     padding-top: 30px;
     font-weight: bold;
+    font-size: 20px;
 }
 
 /* mediaquery for mobile friednly (575px and smaller) */
@@ -185,15 +166,20 @@
 
     .description {
         font-size: 20px;
-        margin: 15px 20px 0 20px;
+        margin: 1px 20px 0 20px;
     }
 
     .instructions {
         font-size: 10px;
-        margin: 0 20px 0 20px;
+        margin: 20px 20px 0 20px;
     }
 
-    .btn {
+    .search {
+        width: 120px;
+        height: 30px;
+    }
+
+    .search-btn {
         font-size: 15px;
         margin-top: 10px;
     }
@@ -206,18 +192,6 @@
         font-size: 20px;
     }
 
-   .year-header {
-       font-size: 20px;
-   }
-
-   .year-array {
-        font-size: 15px;
-   }
-
-   .stored-year {
-       font-size: 18px;
-   }
-
    .bored-data {
        font-size: 15px;
    }
@@ -225,10 +199,9 @@
    .act-btn {
        font-size: 15px;
    }
-
-   .m-title {
-        font-size: 20px;
-        grid-row: 1;
+   
+   .movie-container {
+       width: 840px;
    }
    
    

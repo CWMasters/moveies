@@ -12,12 +12,13 @@
     <title>Moveies</title>
 </head>
 <body>
+
     <!-- background image -->
-    <div class="background-image blur-sm flex">
+    <div class="background-image blur-sm">
       <img src="./assets/images/cinema-dark.png">
     </div>
 
-    <main>
+    <section>
         <nav class="navbar">
             <div class="width"> 
                 <div class="logo">
@@ -28,83 +29,36 @@
     
         <div class="description">
             <h1 id="glow">Movies Throughout the Years, with an acitvity while you watch!</h1>
-              <p class="instructions" id="glow">Search whichever year you'd like from 1950 to current and you'll recieve the top 5 movies of that year.<p>
-                  <input type="text" class="textarea rounded">
+              <p class="instructions" id="glow">Search whichever year you'd like and you'll recieve the top 5 movies of that year/ click the upcoming movies title or generate activity to view more!<p>
+                  <!-- <input type="text" class="textarea rounded"> -->
                 </br>
-                <button class="btn rounded px-3" id="search-btn">Search</button>
-                <p id="warning-paragraph"></p>
+                <form id="form">
+                    <input type="number" id="search" class="search" min="2000" max="2022" placeholder="Enter Year...">
+                </br>
+                    <button type="submit" class="search-btn" id="search-btn">Search</button>
+                </form>
         </div>
-    
-        <!-- stored date array -->
-        <div class="year-array" id="quick-links">
-            <div id="past-searches" class="stored-year"></div>
-            <p>Previous:</p>
-          </div>
-
-        <!-- stored date array ????????-->
-        <!-- <div class="year-array" id="quick-links">
-          <p>Previous:
-            <span class="stored-year space-x-1.5">
-              <button class="year-1" id="stored">2010</button> 
-              <button class="year-2" id="stored">2011</button>
-              <button class="year-3" id="stored">2012</button>
-              <button class="year-4" id="stored">2013</button>
-              <button class="year-5" id="stored">2014</button>
-            </span>
-          </p>
-        </div> -->
-    </main> 
+    </section> 
 
 
-      <section>
-        <!-- current year displayed -->
-        <!-- <h2 class="year-header flex" id="glow">2022</h2> -->
+    <main>
         <!-- subtitle -->
-        <h3 class="subtitle">Top Movies:<span class="year-header" id="glow">2022</span></h3>
+        <h3 class="subtitle">Top Movies:<span class="year-header" id="glow"></span></h3>
         <!-- break line -->
-        <hr />
-
-       <!-- top 5 movies 2022 -->
-        <div class="grid grid-cols-5 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-5 xl:grid-cols-5 gap-5 ml-10" id="movie-container ">
-          <!-- movie 1 -->
-          <div class="movie-1">
-            <p class="m-title" id="glow">1: Scream</p>
-          </br>
-            <img src="./assets/images/Scream2022.png" alt="Scream 2022 Movie Poster" width="160px">
-        </div>
-
-          <!-- movie 2 -->
-          <div class="movie-2">
-            <div class="col-span-1"></div>
-            <p class="m-title" id="glow">2: Water Gate Bridge</p>
-          </br>
-            <img src="./assets/images/watergate2022.png" alt="Water Gate Bridge Movie Poster" width="160px">
-          </div>
-
-          <!-- movie 3 -->
-          <div class="movie-3">
-            <p class="m-title" id="glow">3: Jackass Forever</p>
-          </br>
-            <img src="./assets/images/jackass.png" alt="Jackass Forever Movie Poster" width="160px">
-          </div>
-
-          <!-- movie 4 -->
-          <div class="movie-4">
-            <p class="m-title" id="glow">4: The 355</p>
-          </br>
-            <img src="./assets/images/355.png" alt="The 355 Movie Poster" width="160px">
-          </div>
-
-          <!-- movie 5 -->
-          <div class="movie-5">
-            <p class="m-title" id="glow">5: Moonfall</p>
-          </br>
-            <img src="./assets/images/moonfall.png" alt="Moonfall Movie Poster" width="160px">
-          </div>
-        </div>
-      </section>
+          <hr />
         
-      <section>
+        <!-- top 5 movies 2022 -->
+        <div class="movie-container flex grid grid-cols-5 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-5 xl:grid-cols-5 gap-5 ml-10" id="current-movies">
+          <p class="m-title" id="glow"></p>
+        </div>
+        
+        <!-- top 5 upcoming movies -->
+        <button class="subtitle upcoming-subtitle" id="upcoming-movies-btn">Upcoming Movies:<span class="year-header" id="glow"></span></button>
+          <hr />
+        <div class="movie-container flex grid grid-cols-5 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-5 xl:grid-cols-5 gap-5 ml-10" id="upcoming-movies">
+            <p class="m-title" id="glow"></p>
+        </div>
+        
         <!-- activity -->
         <div>
             <h3 class="subtitle1">A fun activity while you watch?</h3>
@@ -115,14 +69,14 @@
           <div id="current-activity-container"></div>
           <button id="generate-activity" class="act-btn rounded px-3">Generate Activity</button>
         </div>
-      </section>
+    </main>
 
-      <footer class="footer pb-10">
+    <footer class="footer pb-10">
         <hr /> </br>
         <h4>
             &copy; 2022 KBC, Inc
         </h4>
-      </footer>
+    </footer>
     
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
