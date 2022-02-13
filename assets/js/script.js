@@ -40,7 +40,6 @@ searchBtn.addEventListener("click", function(event){
 })
 var input = "";
 var upcomingMoviesBtn = document.getElementById("upcoming-movies-btn")
-var form = document.getElementById("form")
 function currentMovies() {
     fetch(movieApi)
     .then(repsonse => repsonse.json())
